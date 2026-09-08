@@ -1,0 +1,83 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Introduction
+
+This notebook provides a simplified and reproducible starting point for the thesis analysis.
+
+The full data-cleaning workflow is documented in `Cleaning.Rmd`. However, the original raw critic and user review datasets used during that process were too large to be included in this GitHub repository.
+
+For that reason, this notebook skips the initial cleaning of those raw files and instead imports the final cleaned datasets that were produced after the full cleaning process.
+
+The purpose of this notebook is therefore to allow others to continue with the analysis using the processed datasets available in the repository, without requiring access to the original large CSV files.
+
+If you are interested in the complete data-cleaning procedure, including the transformations and filtering applied to the original review data, refer to `Cleaning.Rmd`.
+
+---
+
+# Import Packages
+
+The following packages are used throughout the data preparation and analysis workflow.
+
+```{r message=FALSE, warning=FALSE}
+library(patchwork)
+library(DBI)
+library(duckdb)
+library(readxl)
+library(tidyverse)
+library(e1071)
+library(janitor)
+library(lubridate)
+library(psych)
+library(corrplot)
+library(naniar)
+library(GGally)
+library(ggalluvial)
+library(car)
+library(lmtest)
+library(jtools)
+library(car)
+library(openxlsx)
+library(data.table)
+library(lmtest)
+library(sandwich)
+```
+
+---
+
+# Critic Reviews Dataset
+
+---
+
+## Import Data
+
+This section imports the final cleaned critic review dataset used in the thesis analysis.
+
+The original critic review dataset required extensive cleaning and processing before it could be merged with the movie-level financial and buzz data. The complete cleaning workflow can be found in Cleaning.Rmd.
+
+Because the original raw review file exceeded GitHub's file-size limits, it is not included in this repository. Instead, critic_analysis_data.csv contains the final processed dataset required to reproduce the critic review analysis.
+
+```{r message=FALSE, warning=FALSE}
+critic_analysis_data <- read_csv("critic_analysis_data.csv")
+```
+
+---
+
+# User Reviews Dataset
+
+---
+
+## Import Data
+
+This section imports the final cleaned user review dataset used in the thesis analysis.
+
+As with the critic review data, the original user review dataset required extensive cleaning and was too large to include in this GitHub repository. The full cleaning procedure is documented in Cleaning.Rmd
+
+To make the project reproducible without requiring the original large CSV file, this notebook instead imports user_analysis_data.csv, which contains the final processed dataset used for the user review analysis.
+
+```{r message=FALSE, warning=FALSE}
+user_analysis_data <- read_csv("user_analysis_data.csv")
+```
+
