@@ -1,0 +1,1062 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Analysis - Critic Review Data (Part 5)
+
+---
+
+## Preliminary Tasks
+
+Before running the regressions, verify the reference category used for the categorical variable `release_season`. 
+In R, the first factor level is used as the reference category in the regression model.
+
+```{r}
+# 1. Check levels directly
+levels(critic_analysis_data$release_season)          # first element = reference
+levels(critic_analysis_data$maingenre)   
+levels(critic_analysis_data$sidegenre)   
+```
+
+Check that the continuous variables used in the analyses are stored as numeric variables.
+This is important because regression models and correlation analyses require appropriately formatted numeric variables for continuous predictors/outcomes.
+
+```{r}
+# Make sure variables are numeric
+class(critic_analysis_data$log_BoxOfficeLegs)
+class(critic_analysis_data$avgBuzz)
+class(critic_analysis_data$log_ReviewVolume)
+class(critic_analysis_data$ReviewValence)
+```
+
+---
+
+## Main-Effect Regression Models
+
+These models test the associations between critic review measures and box office performance without interaction terms. The dependent variable is log_BoxOfficeLegs. The independent variables are log_ReviewVolume and ReviewValence. And release_season, maingenre, sidegenre, and budget are included as control variables where specified.
+
+```{r}
+# Model 1: Test whether critic review volume predicts box office performance,
+# controlling for release season, main genre, sidegenre, and budget.
+  critic_model_volume <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_volume) 
+
+# Model 2: Test whether critic review valence predicts box office performance,
+# controlling for release season, main genre, side genre, and budget.
+  critic_model_valence <- lm(log_BoxOfficeLegs ~ ReviewValence + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_valence)
+
+# Model 3: Include both review volume and review valence simultaneously.
+# This estimates the unique association of each predictor with box office performance while controlling for the other review measure and the specified control variables.
+  critic_model_both <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + ReviewValence + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_both)
+```
+
+Variance Inflation Factors (VIFs) are used to assess whether predictors are highly correlated with one another, which can make regression estimates less stable. For categorical variables with multiple degrees of freedom, R reports a GVIF; the adjusted value GVIF^(1/(2×Df)) should be used for interpretation. 
+
+As a general rule, values around 1 indicate little/no multicollinearity, while values above 5 (or more conservatively 2.5–5) may warrant further investigation.
+
+```{r}
+# Check VIF 
+vif(critic_model_both)
+```
+
+---
+
+## Interaction Analysis
+
+The continuous variables involved in interaction terms are mean-centered by subtracting their respective sample means.
+Centering is used here because the models contain interaction terms. It makes the coefficients of the lower-order predictors easier to interpret: their effects are interpreted when the other interacting continuous predictor is at its mean.
+
+```{r}
+# Center the variables
+critic_analysis_data$ReviewValence_c <- scale(critic_analysis_data$ReviewValence, center = TRUE, scale = FALSE)
+critic_analysis_data$avgBuzz_c <- scale(critic_analysis_data$avgBuzz, center = TRUE, scale = FALSE)
+critic_analysis_data$log_ReviewVolume_c <- scale(critic_analysis_data$log_ReviewVolume, center = TRUE, scale = FALSE)
+```
+
+So scale() returns a matrix-like object with a "scaled:center" attribute.
+The values themselves are unchanged by this conversion. as.numeric() converts the centered variables into ordinary numeric vectors so that they have a standard numeric data type. Essentially used to remove [,1].
+
+```{r}
+# Turn variables numeric
+critic_analysis_data$ReviewValence_c <- as.numeric(critic_analysis_data$ReviewValence_c)
+critic_analysis_data$avgBuzz_c <- as.numeric(critic_analysis_data$avgBuzz_c)
+critic_analysis_data$log_ReviewVolume_c <- as.numeric(critic_analysis_data$log_ReviewVolume_c)
+
+#Check if it worked
+class(critic_analysis_data$ReviewValence_c)
+class(critic_analysis_data$avgBuzz_c)
+class(critic_analysis_data$log_ReviewVolume_c)
+```
+
+These models extend the main-effects analysis by testing whether avgBuzz moderates the relationship between critic review measures and box office performance. 
+
+```{r}
+# Model 1: Review Valence × Average Buzz
+# Tests whether average buzz moderates the association between critic review valence and box office performance.
+  critic_model_valence_moderated_c <- lm(log_BoxOfficeLegs ~ ReviewValence_c * avgBuzz_c + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_valence_moderated_c)
+
+# Model 2: Review Volume × Average Buzz
+# Tests whether average buzz moderates the association between critic review volume and box office performance.
+  critic_model_volume_moderated_c <- lm(log_BoxOfficeLegs ~ log_ReviewVolume_c * avgBuzz_c + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_volume_moderated_c)
+
+# Model 3: Review Volume x Review Valence x Average Buzz
+# Tests a three-way interaction to determine whether the relationship between review volume and review valence depends on average buzz.
+  critic_model_both_moderated_c <- lm(log_BoxOfficeLegs ~ log_ReviewVolume_c * ReviewValence_c * avgBuzz_c + release_season + maingenre + sidegenre + budget, data = critic_analysis_data)
+  summary(critic_model_both_moderated_c)
+```
+
+VIFs are examined for the centered interaction model. And type = "predictor" is used because the model contains interaction terms, making it easier to assess multicollinearity for each predictor involved in the interaction.
+
+```{r}
+# Check VIF 
+vif(critic_model_valence_moderated_c, type = 'predictor')
+```
+
+---
+
+## Descriptive Analysis
+
+Calculate the mean, standard deviation, minimum, maximum, and number of non-missing observations for the main continuous variables.
+
+```{r}
+# Basic descriptives (mean, SD, min, max, N) using dplyr; prints only, no objects saved.
+# na.rm = TRUE ensures that missing observations do not prevent the statistics from being calculated.
+critic_analysis_data %>%
+  summarise(across(
+    c(BoxOfficeLegs, ReviewVolume, ReviewValence, avgBuzz),
+    list(
+      mean = ~mean(., na.rm = TRUE),
+      sd   = ~sd(.,   na.rm = TRUE),
+      min  = ~min(.,  na.rm = TRUE),
+      max  = ~max(.,  na.rm = TRUE),
+      n    = ~sum(!is.na(.))
+    )
+  ))
+```
+
+Use psych::describe() to obtain additional descriptive statistics, including the median, skewness, and kurtosis.
+Only the statistics relevant for reporting are retained and rounded to two decimal places.
+
+```{r}
+# Rich descriptives (psych::describe gives median, skew, kurtosis, SE, etc.)
+# Then keep only the columns you care about and round; still no objects saved.
+psych::describe(critic_analysis_data[, c("BoxOfficeLegs","ReviewVolume","ReviewValence","avgBuzz")])[, 
+                 c("mean","sd","median","min","max","skew","kurtosis","n")] |>
+  round(2)
+```
+
+---
+
+### Exploratory Visualization
+
+Create a scatterplot to visually examine the relationship between critic review valence and box office performance. 
+
+```{r}
+# Scatterplot of critic review valence against box office legs.
+# The red line represents the fitted linear regression relationship.
+ggplot(critic_analysis_data, aes(x = ReviewValence, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(
+    x = "Review Valence",
+    y = "Box Office Legs"
+  ) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),  # space above x-axis title
+    axis.title.y = element_text(margin = margin(r = 10))   # space to the right of y-axis title
+  )
+```
+
+Create a scatterplot to visually examine the relationship between critic review volume and box office performance.
+
+```{r}
+# Scatterplot of critic review volume against box office legs.
+# The red line represents the fitted linear regression relationship.
+ggplot(critic_analysis_data, aes(x = ReviewVolume, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(
+    x = "Review Volume",
+    y = "Box Office Legs"
+  ) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),  # space above x-axis title
+    axis.title.y = element_text(margin = margin(r = 10))   # space to the right of y-axis title
+  )
+```
+
+Create the two exploratory scatterplots as separate plot objects and display them side by side for easier comparison.
+
+```{r}
+# Define both plots
+p1 <- ggplot(critic_analysis_data, aes(x = ReviewValence, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(x = "Critic review valence", y = "Box office legs") +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10))
+  )
+
+p2 <- ggplot(critic_analysis_data, aes(x = ReviewVolume, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(x = "Critic review volume", y = "Box office legs") +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10))
+  )
+
+# Combine side by side
+p1 + p2
+
+# Cleanup objects if done viewing
+rm(p1, p2)
+```
+
+---
+
+### Correlation Analysis
+
+Calculate Pearson correlations and corresponding significance tests among the main continuous variables.
+
+```{r}
+# Correlation test
+cor_results <- corr.test(critic_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")])
+r <- round(cor_results$r, 2)
+p <- cor_results$p
+
+# Create empty matrix with same dimensions
+r_apa <- matrix("", nrow = nrow(r), ncol = ncol(r))
+rownames(r_apa) <- colnames(r_apa) <- colnames(r)
+
+# Fill only lower triangle with APA-style values
+for (i in 2:nrow(r)) {
+  for (j in 1:(i-1)) {
+    stars <- ifelse(p[i, j] < 0.001, "**",
+             ifelse(p[i, j] < 0.05, "*", ""))
+    r_apa[i, j] <- paste0(r[i, j], stars)
+  }
+}
+
+# Fill diagonal with 1
+diag(r_apa) <- "1"
+
+# Convert to data frame
+apa_table <- as.data.frame(r_apa)
+print(apa_table)
+```
+
+Calculate Pearson correlation coefficients using complete cases only.
+Pearson correlation assesses the strength and direction of linear associations between the continuous variables.
+
+```{r}
+# Pearson correlation matrix
+cor(critic_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")],
+    method = "pearson", use = "complete.obs")
+```
+
+Calculate Spearman rank-order correlations as a non-parametric alternative to Pearson correlations.
+Spearman correlations assess the strength and direction of monotonic relationships and are less dependent on normally distributed variables.
+
+```{r}
+# Spearman correlation matrix
+cor(critic_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")],
+    method = "spearman", use = "complete.obs")
+```
+
+---
+
+### Variable Distributions
+
+Histograms with overlaid density curves are used to visually inspect the distributions of the continuous variables.
+These plots help identify potential skewness, unusual distributions, and extreme observations before interpreting the regression analyses.
+
+```{r}
+# Histogram of BoxOfficeLegs with density curve (distribution check: skew/outliers/normality)
+ggplot(critic_analysis_data, aes(x = log_BoxOfficeLegs)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Box Office Legs", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin   = margin(15, 15, 15, 15)
+  )
+
+# Histogram of ReviewVolume with density curve (distribution check: skew/outliers/normality)
+ggplot(critic_analysis_data, aes(x = log_ReviewVolume)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Review Volume", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram of ReviewValence with density curve (distribution check: skew/outliers/normality)
+ggplot(critic_analysis_data, aes(x = ReviewValence)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Review Valence", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram of avgBuzz with density curve (distribution check: skew/outliers/normality)
+ggplot(critic_analysis_data, aes(x = avgBuzz)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Average Buzz", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+```
+
+Create four individual distribution plots and combine them into a 2 × 2 grid for an overall visual assessment of the continuous variables.
+
+```{r}
+# Histogram 1: Box Office Legs
+p1 <- ggplot(critic_analysis_data, aes(x = log_BoxOfficeLegs)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Box office legs", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin   = margin(15, 15, 15, 15)
+  )
+
+# Histogram 2: Review Volume
+p2 <- ggplot(critic_analysis_data, aes(x = log_ReviewVolume)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Critic review volume", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram 3: Review Valence
+p3 <- ggplot(critic_analysis_data, aes(x = ReviewValence)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Critic review valence", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram 4: Average Buzz
+p4 <- ggplot(critic_analysis_data, aes(x = avgBuzz)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Average buzz", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Combine all into a 2x2 grid
+(p1 | p2) /
+(p3 | p4)
+
+# Cleanup objects if done viewing
+rm(p1, p2, p3, p4)
+```
+
+---
+
+# Analysis - User Review Data (Part 6)
+
+---
+
+## Preliminary Tasks
+
+Before running the regressions, verify the reference category used for the categorical variable `release_season`. 
+In R, the first factor level is used as the reference category in the regression model.
+
+```{r}
+# 1. Check levels directly
+levels(user_analysis_data$release_season)          # first element = reference
+levels(user_analysis_data$maingenre)   
+levels(user_analysis_data$sidegenre)   
+```
+
+Check that the continuous variables used in the analyses are stored as numeric variables.
+This is important because regression models and correlation analyses require appropriately formatted numeric variables for continuous predictors/outcomes.
+
+```{r}
+# Make sure variables are numeric
+class(user_analysis_data$log_BoxOfficeLegs)
+class(user_analysis_data$avgBuzz)
+class(user_analysis_data$log_ReviewVolume)
+class(user_analysis_data$ReviewValence)
+```
+
+---
+
+## Regressions Main Effect
+
+These models test the associations between user review measures and box office performance without interaction terms. The dependent variable is log_BoxOfficeLegs. The independent variables are log_ReviewVolume and ReviewValence. Release season, main genre, side genre, and budget are included as control variables where specified.
+
+```{r}
+# Model 1: Test whether user review volume predicts box office performance,
+# controlling for release season, main genre, sidegenre, and budget.
+user_model_volume <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + release_season + maingenre + sidegenre + budget, data = user_analysis_data)
+summary(user_model_volume) 
+
+# Model 2: Test whether user review valence predicts box office performance,
+# controlling for release season, main genre, side genre, and budget.
+user_model_valence <- lm(log_BoxOfficeLegs ~ ReviewValence + release_season + maingenre + sidegenre + budget, data = user_analysis_data)
+summary(user_model_valence)
+
+# Model 3: Include both review volume and review valence simultaneously.
+# This estimates the unique association of each predictor with box office performance while controlling for the other review measure and the specified control variables.
+user_model_both <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + ReviewValence + release_season + maingenre + budget, data = user_analysis_data)
+summary(user_model_both)
+```
+
+Variance Inflation Factors (VIFs) are used to assess whether predictors are highly correlated with one another, which can make regression estimates less stable. For categorical variables with multiple degrees of freedom, R reports a GVIF; the adjusted value GVIF^(1/(2×Df)) should be used for interpretation. 
+
+As a general rule, values around 1 indicate little/no multicollinearity, while values above 5 (or more conservatively 2.5–5) may warrant further investigation.
+
+```{r}
+# Check VIF 
+vif(user_model_both)
+```
+
+---
+
+## Main Effects + Interaction Effects
+
+The continuous variables involved in the interaction terms are mean-centered by subtracting their respective sample means. Centering is used because the models contain interaction terms. It makes the coefficients of the lower-order predictors easier to interpret: their effects are interpreted when the other interacting continuous predictor is at its mean.
+
+```{r}
+# Center the variables
+user_analysis_data$ReviewValence_c <- scale(user_analysis_data$ReviewValence, center = TRUE, scale = FALSE)
+user_analysis_data$avgBuzz_c <- scale(user_analysis_data$avgBuzz, center = TRUE, scale = FALSE)
+user_analysis_data$log_ReviewVolume_c <- scale(user_analysis_data$log_ReviewVolume, center = TRUE, scale = FALSE)
+```
+
+So scale() returns a matrix-like object with a "scaled:center" attribute.
+The values themselves are unchanged by this conversion. as.numeric() converts the centered variables into ordinary numeric vectors so that they have a standard numeric data type. Essentially used to remove [,1].
+
+```{r}
+# Turn variables numeric
+user_analysis_data$ReviewValence_c <- as.numeric(user_analysis_data$ReviewValence_c)
+user_analysis_data$avgBuzz_c <- as.numeric(user_analysis_data$avgBuzz_c)
+user_analysis_data$log_ReviewVolume_c <- as.numeric(user_analysis_data$log_ReviewVolume_c)
+
+#Check if it worked
+class(user_analysis_data$ReviewValence_c)
+class(user_analysis_data$avgBuzz_c)
+class(user_analysis_data$log_ReviewVolume_c)
+```
+
+These models extend the main-effects analysis by testing whether avgBuzz moderates the relationship between critic review measures and box office performance. 
+
+```{r}
+# Model 1: Review Valence × Average Buzz
+# Tests whether average buzz moderates the association between user review valence and box office performance.
+user_model_valence_moderated_c <- lm(BoxOfficeLegs ~ ReviewValence_c * avgBuzz_c + release_season + maingenre + sidegenre + budget, data = user_analysis_data)
+summary(user_model_valence_moderated_c)
+
+# Model 2: Review Volume × Average Buzz
+# Tests whether average buzz moderates the association between user review volume and box office performance.
+user_model_volume_moderated_c <- lm(BoxOfficeLegs ~ log_ReviewVolume_c * avgBuzz_c + release_season + maingenre + sidegenre + budget, data = user_analysis_data)
+summary(user_model_volume_moderated_c)
+
+# Model 3: Review Volume x Review Valence x Average Buzz
+# Tests a three-way interaction to determine whether the relationship between review volume and review valence depends on average buzz.
+user_model_both_moderated_c <- lm(log_BoxOfficeLegs ~ log_ReviewVolume_c * ReviewValence_c * avgBuzz_c + release_season + maingenre + budget, data = user_analysis_data)
+summary(user_model_both_moderated_c)
+```
+
+VIFs are examined for the centered interaction model. And type = "predictor" is used because the model contains interaction terms, making it easier to assess multicollinearity for each predictor involved in the interaction.
+
+```{r}
+# Check VIF 
+vif(user_model_both_moderated_c, type = 'predictor')
+```
+
+---
+
+## Descriptive Analysis
+
+Calculate the mean, standard deviation, minimum, maximum, and number of non-missing observations for the main continuous variables.
+
+```{r}
+# Basic descriptives (mean, SD, min, max, N) using dplyr; prints only, no objects saved.
+# na.rm = TRUE ensures that missing observations do not prevent the statistics from being calculated.
+user_analysis_data %>%
+  summarise(across(
+    c(BoxOfficeLegs, ReviewVolume, ReviewValence, avgBuzz),
+    list(
+      mean = ~mean(., na.rm = TRUE),
+      sd   = ~sd(.,   na.rm = TRUE),
+      min  = ~min(.,  na.rm = TRUE),
+      max  = ~max(.,  na.rm = TRUE),
+      n    = ~sum(!is.na(.))
+    )
+  ))
+```
+
+Use psych::describe() to obtain additional descriptive statistics, including the median, skewness, and kurtosis.
+Only the statistics relevant for reporting are retained and rounded to two decimal places.
+
+```{r}
+# Rich descriptives (psych::describe gives median, skew, kurtosis, SE, etc.)
+# Then keep only the columns you care about and round; still no objects saved.
+psych::describe(user_analysis_data[, c("BoxOfficeLegs","ReviewVolume","ReviewValence","avgBuzz")])[, 
+                 c("mean","sd","median","min","max","skew","kurtosis","n")] |>
+  round(2)
+```
+
+---
+
+## Exploratory Visualization
+
+Create a scatterplot to visually examine the relationship between user review valence and box office performance. 
+
+```{r}
+# Scatterplot of user review valence against box office legs.
+# The red line represents the fitted linear regression relationship.
+ggplot(user_analysis_data, aes(x = ReviewValence, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(
+    x = "Review Valence",
+    y = "Box Office Legs"
+  ) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),  # space above x-axis title
+    axis.title.y = element_text(margin = margin(r = 10))   # space to the right of y-axis title
+  )
+```
+
+Create a scatterplot to visually examine the relationship between user review volume and box office performance.
+
+```{r}
+# Scatterplot of user review volume against box office legs.
+# The red line represents the fitted linear regression relationship.
+ggplot(user_analysis_data, aes(x = ReviewVolume, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(
+    x = "Review Volume",
+    y = "Box Office Legs"
+  ) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),  # space above x-axis title
+    axis.title.y = element_text(margin = margin(r = 10))   # space to the right of y-axis title
+  )
+```
+
+Create the two exploratory scatterplots as separate plot objects and display them side by side for easier comparison.
+
+```{r}
+# Define both plots
+p1 <- ggplot(user_analysis_data, aes(x = ReviewValence, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(x = "User review valence", y = "Box office legs") +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10))
+  )
+
+p2 <- ggplot(user_analysis_data, aes(x = ReviewVolume, y = BoxOfficeLegs)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(x = "User review volume", y = "Box office legs") +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10))
+  )
+
+# Combine side by side
+p1 + p2 
+
+# Cleanup objects if done viewing
+rm(p1, p2)
+```
+
+---
+
+## Correlation Analysis
+
+Calculate Pearson correlations and corresponding significance tests among the main continuous variables.
+
+```{r}
+# Correlation test
+cor_results <- corr.test(user_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")])
+r <- round(cor_results$r, 2)
+p <- cor_results$p
+
+# Create empty matrix with same dimensions
+r_apa <- matrix("", nrow = nrow(r), ncol = ncol(r))
+rownames(r_apa) <- colnames(r_apa) <- colnames(r)
+
+# Fill only lower triangle with APA-style values
+for (i in 2:nrow(r)) {
+  for (j in 1:(i-1)) {
+    stars <- ifelse(p[i, j] < 0.001, "**",
+             ifelse(p[i, j] < 0.05, "*", ""))
+    r_apa[i, j] <- paste0(r[i, j], stars)
+  }
+}
+
+# Fill diagonal with 1
+diag(r_apa) <- "1"
+
+# Convert to data frame
+apa_table <- as.data.frame(r_apa)
+print(apa_table)
+```
+
+Calculate Pearson correlation coefficients using complete cases only.
+Pearson correlation assesses the strength and direction of linear associations between the continuous variables.
+
+```{r}
+# Pearson correlation matrix
+cor(user_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")],
+    method = "pearson", use = "complete.obs")
+```
+
+Calculate Spearman rank-order correlations as a non-parametric alternative to Pearson correlations.
+Spearman correlations assess the strength and direction of monotonic relationships and are less dependent on normally distributed variables.
+
+```{r}
+# Spearman correlation matrix
+cor(user_analysis_data[, c("log_BoxOfficeLegs", "log_ReviewVolume", "ReviewValence", "avgBuzz")],
+    method = "spearman", use = "complete.obs")
+```
+
+---
+
+## Variable Distributions
+
+Histograms with overlaid density curves are used to visually inspect the distributions of the continuous variables.
+These plots help identify potential skewness, unusual distributions, and extreme observations before interpreting the regression analyses.
+
+```{r}
+# Histogram of BoxOfficeLegs with density curve (distribution check: skew/outliers/normality)
+ggplot(user_analysis_data, aes(x = BoxOfficeLegs)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Box Office Legs", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin   = margin(15, 15, 15, 15)
+  )
+
+# Histogram of ReviewVolume with density curve (distribution check: skew/outliers/normality)
+ggplot(user_analysis_data, aes(x = ReviewVolume)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "User review volume", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram of ReviewValence with density curve (distribution check: skew/outliers/normality)
+ggplot(user_analysis_data, aes(x = ReviewValence)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "User review valence", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram of avgBuzz with density curve (distribution check: skew/outliers/normality)
+ggplot(user_analysis_data, aes(x = avgBuzz)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Average Buzz", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+```
+
+Create four individual distribution plots and combine them into a 2 × 2 grid for an overall visual assessment of the continuous variables.
+
+```{r}
+# Histogram 1: Box Office Legs
+p1 <- ggplot(user_analysis_data, aes(x = log_BoxOfficeLegs)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Box office legs", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin   = margin(15, 15, 15, 15)
+  )
+
+# Histogram 2: User Review Volume
+p2 <- ggplot(user_analysis_data, aes(x = log_ReviewVolume)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "User Review Volume", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram 3: User Review Valence
+p3 <- ggplot(user_analysis_data, aes(x = ReviewValence)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "User Review Valence", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Histogram 4: Average Buzz
+p4 <- ggplot(user_analysis_data, aes(x = avgBuzz)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red", size = 1) +
+  labs(x = "Average buzz", y = "Density") +
+  theme_minimal(base_size = 10) +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    plot.margin  = margin(15, 15, 15, 15)
+  )
+
+# Combine all into a 2x2 grid
+(p1 | p2) /
+(p3 | p4)
+
+# Cleanup objects if done viewing
+rm(p1, p2, p3, p4)
+```
+
+---
+
+# Assumptions (Part 7)
+
+---
+
+## Linearity 
+
+Residuals-versus-fitted plots are used to assess whether the relationship between the predictors and box office performance is approximately linear. The plots are examined for systematic patterns in the residuals. A roughly random spread of residuals around the horizontal zero line supports the linearity assumption, whereas visible curves or other systematic patterns may indicate non-linearity.
+
+```{r}
+# Critic review data: Main-effects model
+# Plot residuals against fitted values to assess linearity.
+plot(critic_model_both$fitted.values, resid(critic_model_both),
+     xlab = "Fitted Box Office Legs", 
+     ylab = "Residuals")
+abline(h = 0, col = "red")
+
+# Critic review data: Moderated model
+# Plot residuals against fitted values to assess linearity after including interactions.
+plot(critic_model_both_moderated_c$fitted.values, resid(critic_model_both_moderated_c),
+     xlab = "Fitted values", ylab = "Residuals",
+     main = "Residuals vs Fitted")
+abline(h = 0, col = "red")
+
+# User review data: Main-effects model
+# Plot residuals against fitted values to assess linearity.
+plot(user_model_both$fitted.values, resid(user_model_both),
+     xlab = "Fitted values", ylab = "Residuals",
+     main = "Residuals vs Fitted")
+abline(h = 0, col = "red")
+
+# User review data: Moderated model
+# Plot residuals against fitted values to assess linearity after including interactions.
+plot(user_model_both_moderated_c$fitted.values, resid(user_model_both_moderated_c),
+     xlab = "Fitted values", ylab = "Residuals",
+     main = "Residuals vs Fitted")
+abline(h = 0, col = "red")
+```
+
+---
+
+## Homoscedasticity
+
+Homoscedasticity refers to the assumption that the variance of the regression residuals remains approximately constant across the range of fitted values. The Breusch-Pagan test formally assesses whether the residual variance changes systematically. A significant result suggests heteroscedasticity, meaning that robust standard errors may be appropriate.
+
+---
+
+### Breusch-Pagan Test
+
+The Breusch-Pagan test is applied to the main-effects and moderated regression models for both critic and user review data.
+This provides a formal check for heteroscedasticity before interpreting the regression coefficients and their significance.
+
+All four models show significant Breusch-Pagan tests (p < .05), indicating evidence of heteroscedasticity. Therefore, heteroscedasticity-robust standard errors are used when interpreting the regression coefficients.
+
+```{r}
+# Run Breusch-Pagan test
+bptest(critic_model_both)
+bptest(critic_model_both_moderated_c)
+bptest(user_model_both)
+bptest(user_model_both_moderated_c)
+```
+
+---
+
+### COEFTEST - COMPUTE ROBUST STANDARD ERRORS
+
+If heteroscedasticity is present, heteroscedasticity-consistent (HC1) standard errors are used to make statistical inference more robust to unequal residual variance.
+
+The models are re-estimated here so that both the conventional regression results and the robust coefficient tests can be directly inspected for the main-effects and moderated models.
+
+Because the Breusch-Pagan tests indicate heteroscedasticity in the regression models, heteroscedasticity-consistent (HC1) standard errors are used for statistical inference. Robust standard errors adjust the estimated standard errors, test statistics, and p-values without changing the estimated regression coefficients.
+
+```{r}
+# Critic review data: Main-effects model
+# Estimate the model containing both review volume and review valence.
+critic_model_both <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + ReviewValence + release_season + maingenre + budget, data = critic_analysis_data)
+summary(critic_model_both)
+
+  # Calculate heteroscedasticity-robust standard errors using HC1.
+  coeftest(critic_model_both, vcov = vcovHC(critic_model_both, type = "HC1"))
+
+# User review data: Main-effects model
+# Estimate the equivalent model using user review measures.
+user_model_both <- lm(log_BoxOfficeLegs ~ log_ReviewVolume + ReviewValence + release_season + maingenre + budget, data = user_analysis_data)
+summary(user_model_both)
+
+  # Calculate heteroscedasticity-robust standard errors using HC1.
+  coeftest(user_model_both, vcov = vcovHC(user_model_both, type = "HC1"))
+
+# Critic review data: Moderated model
+# Estimate the three-way interaction model using centered review volume, valence, and average buzz.
+critic_model_both_moderated_c <- lm(log_BoxOfficeLegs ~ log_ReviewVolume_c * ReviewValence_c * avgBuzz_c + release_season + maingenre + budget, data = critic_analysis_data)
+summary(critic_model_both_moderated_c)
+
+  # Calculate heteroscedasticity-robust standard errors using HC1.
+  coeftest(critic_model_both_moderated_c, vcov = vcovHC(critic_model_both_moderated_c, type = "HC1"))
+
+# User review data: Moderated model
+# Estimate the equivalent three-way interaction model for user reviews.
+user_model_both_moderated_c <- lm(log_BoxOfficeLegs ~ log_ReviewVolume_c * ReviewValence_c * avgBuzz_c + release_season + maingenre + budget, data = user_analysis_data)
+summary(user_model_both_moderated_c)
+
+  # Calculate heteroscedasticity-robust standard errors using HC1.
+  coeftest(user_model_both_moderated_c, vcov = vcovHC(user_model_both_moderated_c, type = "HC1"))
+```
+
+---
+
+## Normality of Residuals 
+
+The normality assumption concerns the distribution of the regression residuals rather than the raw variables themselves.
+Several approaches are used below to assess residual normality, including the Kolmogorov-Smirnov test, histograms, Q-Q plots, and the Shapiro-Wilk test. The visual diagnostics are particularly useful for identifying substantial deviations from a normal distribution.
+
+---
+
+### Kolmogorov-Smimov Test
+
+The Kolmogorov-Smirnov test compares the observed distribution of model residuals with a normal distribution having the same mean and standard deviation. The test is applied to each main-effects and moderated model for both critic and user review data.
+
+```{r}
+# Test whether residuals from the critic main-effects model differ from a normal distribution.
+ks.test(residuals(critic_model_both), "pnorm", 
+        mean = mean(residuals(critic_model_both)), 
+        sd = sd(residuals(critic_model_both)))
+
+# Test residual normality for the user main-effects model.
+ks.test(residuals(user_model_both), "pnorm", 
+        mean = mean(residuals(user_model_both)), 
+        sd = sd(residuals(user_model_both)))
+
+# Test residual normality for the critic moderated model.
+ks.test(residuals(critic_model_both_moderated_c), "pnorm", 
+        mean = mean(residuals(critic_model_both_moderated_c)), 
+        sd = sd(residuals(critic_model_both_moderated_c)))
+
+# Test residual normality for the user moderated model.
+ks.test(residuals(user_model_both_moderated_c), "pnorm", 
+        mean = mean(residuals(user_model_both_moderated_c)), 
+        sd = sd(residuals(user_model_both_moderated_c)))
+```
+
+---
+
+### QQ- Plot + Shapiro-Wilk Test
+
+Q-Q plots provide a visual assessment of whether the residuals approximately follow a normal distribution.
+If the points follow the reference line reasonably closely, this supports approximate normality. The Shapiro-Wilk test provides an additional formal test of the normality assumption.
+
+```{r}
+# Extract residuals from the critic main-effects model
+residuals_critic_main <- residuals(critic_model_both)
+
+# Histogram of residuals
+hist(
+  residuals_critic_main,
+  xlab = "Residuals (Critic Review Model)",
+  main = ""
+)
+
+# Q-Q plot of residuals
+qqnorm(
+  residuals_critic_main,
+  xlab = "Theoretical Quantiles",
+  ylab = "Residuals (Critic Model)",
+  main = ""
+)
+
+# Add reference line to the Q-Q plot
+qqline(residuals_critic_main, col = "red")
+
+# Shapiro-Wilk test of residual normality
+shapiro.test(residuals_critic_main)
+```
+
+```{r}
+# Extract residuals from the user main-effects model
+residuals_user_main <- residuals(user_model_both)
+
+# Histogram of residuals
+hist(
+  residuals_user_main,
+  xlab = "Residuals (User Review Model)",
+  main = ""
+)
+
+# Q-Q plot of residuals
+qqnorm(
+  residuals_user_main,
+  xlab = "Theoretical Quantiles",
+  ylab = "Residuals (User Model)",
+  main = ""
+)
+
+# Add reference line to the Q-Q plot
+qqline(residuals_user_main, col = "red")
+
+# Shapiro-Wilk test of residual normality
+shapiro.test(residuals_user_main)
+```
+
+```{r}
+# Extract residuals from the critic moderated model
+residuals_critic_moderated <- residuals(critic_model_both_moderated_c)
+
+# Histogram of residuals
+hist(
+  residuals_critic_moderated,
+  xlab = "Residuals (Critic Moderated Model)",
+  main = ""
+)
+
+# Q-Q plot of residuals
+qqnorm(
+  residuals_critic_moderated,
+  xlab = "Theoretical Quantiles",
+  ylab = "Residuals (Critic Moderated Model)",
+  main = ""
+)
+
+# Add reference line to the Q-Q plot
+qqline(residuals_critic_moderated, col = "red")
+
+# Shapiro-Wilk test of residual normality
+shapiro.test(residuals_critic_moderated)
+```
+
+```{r}
+# Extract residuals from the user moderated model
+residuals_user_moderated <- residuals(user_model_both_moderated_c)
+
+# Histogram of residuals
+hist(
+  residuals_user_moderated,
+  xlab = "Residuals (User Moderated Model)",
+  main = ""
+)
+
+# Q-Q plot of residuals
+qqnorm(
+  residuals_user_moderated,
+  xlab = "Theoretical Quantiles",
+  ylab = "Residuals (User Moderated Model)",
+  main = ""
+)
+
+# Add reference line to the Q-Q plot
+qqline(residuals_user_moderated, col = "red")
+
+# Shapiro-Wilk test of residual normality
+shapiro.test(residuals_user_moderated)
+```
+
+---
+
+## Multicollinearity
+
+```{r}
+vif(critic_model_both)
+vif(user_model_both)
+vif(critic_model_both_moderated_c, type = 'predictor')
+vif(user_model_both_moderated_c, type = 'predictor')
+```
+
+---
+
+## Skewness
+
+```{r}
+# --- Numeric skewness & kurtosis for each variable (are they skewed / heavy-tailed?) ---
+skewness(critic_analysis_data$log_BoxOfficeLegs, na.rm = TRUE)
+kurtosis(critic_analysis_data$log_BoxOfficeLegs, na.rm = TRUE)
+
+skewness(critic_analysis_data$BoxOfficeLegs, na.rm = TRUE)
+kurtosis(critic_analysis_data$BoxOfficeLegs, na.rm = TRUE)
+
+skewness(critic_analysis_data$log_ReviewVolume, na.rm = TRUE)
+kurtosis(critic_analysis_data$log_ReviewVolume, na.rm = TRUE)
+
+skewness(critic_analysis_data$ReviewVolume, na.rm = TRUE)
+kurtosis(critic_analysis_data$ReviewVolume, na.rm = TRUE)
+
+skewness(critic_analysis_data$ReviewValence, na.rm = TRUE)
+kurtosis(critic_analysis_data$ReviewValence, na.rm = TRUE)
+
+skewness(critic_analysis_data$avgBuzz, na.rm = TRUE)
+kurtosis(critic_analysis_data$avgBuzz, na.rm = TRUE)
+```
+
+---

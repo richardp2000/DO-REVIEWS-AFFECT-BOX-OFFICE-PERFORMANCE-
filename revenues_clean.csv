@@ -1,0 +1,336 @@
+Rank,movieTitle,Opening,Domestic Box Office Gross,% of Total,Theaters,Average,Date,Distributor,Weeks in Theater,movieYear,maingenre,sidegenre,budget
+1,Avengers: Endgame,357115007,858373000,41.6,4662,76601,"Apr 26, 2019",Walt Disney Studios Motion Pictures,8.1,2019,Action,Super Hero,400000000
+2,Spider-Man: No Way Home,260138569,804793477,32.3,4336,59995,"Dec 17, 2021",Sony Pictures Releasing,14.8,2021,Action,Super Hero,200000000
+3,Avengers: Infinity War,257698183,678815482,0.38,4474,57599,"Apr 27, 2018",Walt Disney Studios Motion Pictures,7.7,2018,Action,Super Hero,300000000
+4,Star Wars: The Force Awakens,247966675,936662225,26.5,4134,59982,"Dec 18, 2015",Walt Disney Studios Motion Pictures,9.2,2015,Adventure,Science Fiction,533200000
+5,Star Wars: The Last Jedi,220009584,620181382,35.5,4232,51987,"Dec 15, 2017",Walt Disney Studios Motion Pictures,6.7 ,2017,Adventure,Science Fiction,262000000
+6,Jurassic World,208806270,652270625,0.32,4274,48855,"Jun 12, 2015",Universal Pictures,8.5,2015,Action,Science Fiction,215000000
+7,Marvel's the Avengers,207438708,623357910,33.3,4349,47698,"May 4, 2012",Walt Disney Studios Motion Pictures,8.7 ,2012,Action,Super Hero,255000000
+8,Black Panther,202003951,700059566,28.9,402,50249,"Feb 16, 2018",Walt Disney Studios Motion Pictures,9.9,2018,Action,Super Hero,200000000
+9,The Lion King,191770759,543638043,35.3,4725,40586,"Jul 19, 2019",Walt Disney Studios Motion Pictures,8.5,2019,Adventure,Kids Fiction,260000000
+10,Avengers: Age of Ultron,191271109,459005868,41.7,4276,44731,"May 1, 2015",Walt Disney Studios Motion Pictures,7.0,2015,Action,Super Hero,365000000
+11,Doctor Strange in the Multiverse of Madness,187420998,411331607,45.6,4534,41336,"May 6, 2022",Walt Disney Studios Motion Pictures,6.6,2022,Action,Super Hero,200000000
+12,Incredibles 2,182687905,608581744,0.3,441,41425,"Jun 15, 2018",Walt Disney Studios Motion Pictures,9.1,2018,Adventure,Super Hero,200000000
+13,Black Panther: Wakanda Forever,181339761,453829060,0.4,4396,41251,"Nov 11, 2022",Walt Disney Studios Motion Pictures,8.3,2022,Action,Super Hero,250000000
+14,Captain America: Civil War,179139142,408084349,43.9,4226,42389,"May 6, 2016",Walt Disney Studios Motion Pictures,6.0 ,2016,Action,Super Hero,250000000
+15,Star Wars: The Rise of Skywalker,177383864,515202542,34.4,4406,40259,"Dec 20, 2019",Walt Disney Studios Motion Pictures,6.7 ,2019,Adventure,Science Fiction,275000000
+16,Beauty and the Beast,174750616,504014165,34.7,421,41508,"Mar 17, 2017",Walt Disney Studios Motion Pictures,8.5,2017,Musical,Fantasy,160000000
+17,Iron Man 3,174144585,409013994,42.6,4253,40946,"May 3, 2013",Walt Disney Studios Motion Pictures,6.2,2013,Action,Super Hero,200000000
+18,Harry Potter and the Deathly Hallows: Part 2,169189427,381011219,44.4,4375,38671,"Jul 15, 2011",Warner Bros.,6.0,2011,Adventure,Fantasy,125000000
+19,Batman v Superman: Dawn of Justice,166007347,330360194,50.2,4242,39134,"Mar 25, 2016",Warner Bros.,5.9,2016,Action,Super Hero,263000000
+20,Barbie,162022044,636238421,25.5,4243,38185,"Jul 21, 2023",Warner Bros.,9.5,2023,Comedy,Contemporary Fiction,145000000
+21,The Dark Knight Rises,160887295,448139099,35.9,4404,36532,"Jul 20, 2012",Warner Bros.,7.4,2012,Action,Super Hero,230000000
+22,The Dark Knight,158411483,533345358,29.7,4366,36282,"Jul 18, 2008",Warner Bros.,9.0,2008,Action,Super Hero,185000000
+23,The Hunger Games: Catching Fire,158074286,424668047,37.2,4163,37971,"Nov 22, 2013",Lionsgate,7.3,2013,Adventure,Science Fiction,130000000
+24,Rogue One: A Star Wars Story,155081681,532177324,29.1,4157,37306,"Dec 16, 2016",Walt Disney Studios Motion Pictures,7.1,2016,Adventure,Science Fiction,280200000
+25,Captain Marvel,153433423,426829839,0.36,431,35599,"Mar 8, 2019",Walt Disney Studios Motion Pictures,7.9,2019,Action,Super Hero,175000000
+26,The Hunger Games,152535747,408010692,37.4,4137,36871,"Mar 23, 2012",Lionsgate,9.1,2012,Action,Science Fiction,80000000
+27,Spider-Man 3,151116516,336530303,44.9,4252,35540,"May 4, 2007",Sony Pictures Releasing,6.5,2007,Adventure,Super Hero,258000000
+28,Jurassic World: Fallen Kingdom,148024610,417719760,35.4,4475,33078,"Jun 22, 2018",Universal Pictures,6.8,2018,Action,Science Fiction,170000000
+29,Furious 7,147187040,353007020,41.7,4004,36760,"Apr 3, 2015",Universal Pictures,6.9,2015,Action,Contemporary Fiction,190000000
+30,Guardians of the Galaxy Vol. 2,146510104,389813101,37.6,4347,33703,"May 5, 2017",Walt Disney Studios Motion Pictures,7.0,2017,Action,Super Hero,200000000
+31,The Super Mario Bros. Movie,146361865,574934330,25.5,4343,33700,"Apr 5, 2023",Universal Pictures,9.2,2023,Adventure,Kids Fiction,100000000
+32,Jurassic World Dominion,145075625,376851080,38.5,4676,31025,"Jun 10, 2022",Universal Pictures,7.0,2022,Action,Science Fiction,185000000
+33,Thor: Love and Thunder,144165107,343256830,0.42,4375,32952,"Jul 8, 2022",Walt Disney Studios Motion Pictures,7.7,2022,Action,Super Hero,250000000
+34,The Twilight Saga: New Moon,142839137,296623634,48.2,4024,35496,"Nov 20, 2009",Summit Entertainment,6.5 ,2009,Drama,Fantasy,50000000
+35,The Twilight Saga: Breaking Dawn Part 2,141067634,292324737,48.3,407,34660,"Nov 16, 2012",Lionsgate,5.9,2012,Drama,Fantasy,136200000
+36,The Twilight Saga: Breaking Dawn Part 1,138122261,281287133,49.1,4061,34011,"Nov 18, 2011",Summit Entertainment,6.1,2011,Drama,Fantasy,127500000
+37,Pirates of the Caribbean: Dead Man's Chest,135634554,423315812,0.32,4133,32817,"Jul 7, 2006",Walt Disney Studios Motion Pictures,8.3,2006,Adventure,Historical Fiction,225000000
+38,Finding Dory,135060273,486295561,27.8,4305,31372,"Jun 17, 2016",Walt Disney Studios Motion Pictures,7.6,2016,Adventure,Kids Fiction,200000000
+39,Avatar: The Way of Water,134100226,684075767,19.6,4202,31913,"Dec 16, 2022",20th Century Studios,11.1,2022,Action,Science Fiction,400000000
+40,The Batman,134008624,369345583,36.3,4417,30339,"Mar 4, 2022",Warner Bros.,6.8,2022,Action,Super Hero,200000000
+41,Suicide Squad,133682248,325100054,41.1,4255,31417,"Aug 5, 2016",Warner Bros.,7.4,2016,Action,Super Hero,175000000
+42,Deadpool,132434639,363070709,36.5,3558,37221,"Feb 12, 2016",Twentieth Century Fox,7.7,2016,Action,Super Hero,58000000
+43,Frozen II,130263358,477373578,27.3,444,29338,"Nov 22, 2019",Walt Disney Studios Motion Pictures,8.6,2019,Musical,Kids Fiction,150000000
+44,Iron Man 2,128122480,312433331,0.41,438,29251,"May 7, 2010",Paramount Pictures,6.2,2010,Action,Super Hero,170000000
+45,Top Gun: Maverick,126707459,718732821,17.6,4735,26759,"May 27, 2022",Paramount Pictures,14.6,2022,Action,Contemporary Fiction,177000000
+46,Deadpool 2,125507153,318491426,39.4,4349,28858,"May 18, 2018",Twentieth Century Fox,7.1,2018,Action,Super Hero,110000000
+47,Harry Potter and the Deathly Hallows: Part 1,125017372,295983305,42.2,4125,30307,"Nov 19, 2010",Warner Bros.,6.8,2010,Adventure,Fantasy,125000000
+48,It,123403419,327481748,37.7,4103,30076,"Sep 8, 2017",Warner Bros.,7.4,2017,Horror,Historical Fiction,35000000
+49,Thor: Ragnarok,122744989,315058289,0.39,408,30084,"Nov 3, 2017",Walt Disney Studios Motion Pictures,6.5,2017,Action,Super Hero,180000000
+50,"The Hunger Games: Mockingjay, Part 1",121897634,337135885,36.2,4151,29365,"Nov 21, 2014",Lionsgate,7.3,2014,Action,Science Fiction,125000000
+51,Shrek the Third,121629270,322719944,37.7,4122,29507,"May 18, 2007",DreamWorks,6.7,2007,Adventure,Kids Fiction,160000000
+52,Toy Story 4,120908065,434038008,27.9,4575,26427,"Jun 21, 2019",Walt Disney Studios Motion Pictures,8.3,2019,Adventure,Kids Fiction,200000000
+53,Spider-Man: Across the Spider-Verse,120663589,381311319,31.6,4313,27976,"Jun 2, 2023",Columbia Pictures,6.9,2023,Adventure,Super Hero,100000000
+54,Guardians of the Galaxy Vol. 3,118414021,358995815,0.33,445,26609,"May 5, 2023",Walt Disney Studios Motion Pictures,6.9,2023,Action,Super Hero,250000000
+55,Spider-Man: Homecoming,117027503,334201140,0.35,4348,26915,"Jul 7, 2017",Sony Pictures Releasing,8.1,2017,Action,Super Hero,175000000
+56,Man of Steel,116619362,291045518,40.1,4207,27720,"Jun 14, 2013",Warner Bros.,5.0 ,2013,Action,Super Hero,225000000
+57,Alice in Wonderland,116101023,334191110,34.7,3728,31142,"Mar 5, 2010",Walt Disney Studios Motion Pictures,7.2,2010,Adventure,Fantasy,200000000
+58,Minions,115718405,336045770,34.4,4301,26905,"Jul 10, 2015",Universal Pictures,7.8,2015,Adventure,Kids Fiction,74000000
+59,Pirates of the Caribbean: At World's End,114732820,309420425,37.1,4362,26302,"May 25, 2007",Walt Disney Studios Motion Pictures,6.1,2007,Adventure,Historical Fiction,300000000
+60,Toy Story 3,110307189,415004880,26.6,4028,27385,"Jun 18, 2010",Walt Disney Studios Motion Pictures,8.4,2010,Adventure,Kids Fiction,200000000
+61,Transformers: Revenge of the Fallen,108966307,402111870,27.1,4234,25736,"Jun 24, 2009",DreamWorks,6.7,2009,Action,Science Fiction,210000000
+62,Star Wars: Episode III - Revenge of the Sith,108435841,380270577,28.5,3661,29619,"May 19, 2005",Twentieth Century Fox,8.1,2005,Adventure,Science Fiction,115000000
+63,Shrek 2,108037878,441550292,24.5,4163,25951,"May 19, 2004",DreamWorks Distribution,8.6,2004,Adventure,Kids Fiction,70000000
+64,Minions: The Rise of Gru,107010140,370549695,28.9,4391,24370,"Jul 1, 2022",Universal Pictures,10.4,2022,Adventure,Kids Fiction,100000000
+65,Ant-Man and The Wasp: Quantumania,106109650,214504909,49.5,4345,24421,"Feb 17, 2023",Walt Disney Studios Motion Pictures,5.2,2023,Action,Super Hero,200000000
+66,The Secret Life of Pets,104352905,368623860,28.3,437,23879,"Jul 8, 2016",Universal Pictures,8.1,2016,Adventure,Kids Fiction,75000000
+67,The Jungle Book,103261464,364001123,28.4,4028,25635,"Apr 15, 2016",Walt Disney Studios Motion Pictures,8.1,2016,Adventure,Fantasy,175000000
+68,Wonder Woman,103251471,412563408,0.25,4165,24790,"Jun 2, 2017",Warner Bros.,9.3,2017,Action,Super Hero,150000000
+69,X-Men: The Last Stand,102750665,234362462,43.8,369,27845,"May 26, 2006",Twentieth Century Fox,5.6,2006,Action,Super Hero,210000000
+70,Harry Potter and the Goblet of Fire,102685961,290013036,35.4,3858,26616,"Nov 18, 2005",Warner Bros.,7.5,2005,Adventure,Fantasy,150000000
+71,"The Hunger Games: Mockingjay, Part 2",102665981,281723902,36.4,4175,24590,"Nov 20, 2015",Lionsgate,6.1,2015,Action,Science Fiction,160000000
+72,Indiana Jones and the Kingdom of the Crystal Skull,100137835,317101119,31.6,426,23506,"May 22, 2008",Paramount Pictures,7.0,2008,Adventure,Historical Fiction,185000000
+73,Transformers: Age of Extinction,100038390,245439076,40.8,4233,23632,"Jun 27, 2014",Paramount Pictures,5.2,2014,Action,Science Fiction,210000000
+74,The Fate of the Furious,98786705,226008385,43.7,431,22920,"Apr 14, 2017",Universal Pictures,5.7,2017,Action,Contemporary Fiction,250000000
+75,Iron Man,98618668,318604126,0.31,4105,24024,"May 2, 2008",Paramount Pictures,8.0,2008,Adventure,Super Hero,186000000
+76,Transformers: Dark of the Moon,97852865,352390543,27.8,4088,23936,"Jun 29, 2011",DreamWorks,5.7,2011,Action,Science Fiction,195000000
+77,Fast & Furious 6,97375245,238679850,40.8,3658,26619,"May 24, 2013",Universal Pictures,5.5,2013,Action,Contemporary Fiction,160000000
+78,Joker,96202337,335451311,28.7,4374,21994,"Oct 4, 2019",Warner Bros.,7.5,2019,Thriller,Contemporary Fiction,55000000
+79,The Little Mermaid,95578040,298172056,0.32,432,22124,"May 26, 2023",Walt Disney Studios Motion Pictures,6.7,2023,Musical,Kids Fiction,250000000
+80,Captain America: The Winter Soldier,95023721,259766572,36.6,3938,24129,"Apr 4, 2014",Walt Disney Studios Motion Pictures,7.0,2014,Action,Super Hero,170000000
+81,Guardians of the Galaxy,94320883,333176600,28.3,408,23117,"Aug 1, 2014",Walt Disney Studios Motion Pictures,9.7,2014,Action,Super Hero,170000000
+82,Justice League,93842239,229024295,0.41,4051,23165,"Nov 17, 2017",Warner Bros.,5.5,2017,Action,Super Hero,300000000
+83,Harry Potter and the Prisoner of Azkaban,93687367,249541069,37.5,3855,24302,"Jun 4, 2004",Warner Bros.,6.7,2004,Adventure,Fantasy,130000000
+84,Godzilla,93188384,200676069,46.4,3952,23580,"May 16, 2014",Warner Bros.,5.2,2014,Action,Science Fiction,160000000
+85,Spider-Man: Far From Home,92579212,390532085,23.7,4634,19978,"Jul 2, 2019",Sony Pictures Releasing,7.2,2019,Action,Super Hero,160000000
+86,The Amazing Spider-Man 2,91608337,202853933,45.2,4324,21186,"May 2, 2014",Sony Pictures Releasing,5.2,2014,Action,Super Hero,200000000
+87,Aladdin,91500929,355559216,25.7,4476,20442,"May 24, 2019",Walt Disney Studios Motion Pictures,8.0,2019,Adventure,Fantasy,182000000
+88,It: Chapter Two,91062152,211593228,0.43,457,19926,"Sep 6, 2019",Warner Bros.,5.6,2019,Horror,Contemporary Fiction,70000000
+89,X-Men: Days of Future Past,90823660,233921534,38.8,3996,22728,"May 23, 2014",Twentieth Century Fox,6.0,2014,Action,Super Hero,200000000
+90,Inside Out,90440272,356461711,25.4,3946,22919,"Jun 19, 2015",Walt Disney Studios Motion Pictures,8.9,2015,Adventure,Kids Fiction,175000000
+91,Pirates of the Caribbean: On Stranger Tides,90151958,241071802,37.4,4155,21697,"May 20, 2011",Walt Disney Studios Motion Pictures,6.0,2011,Adventure,Historical Fiction,379000000
+92,Logan,88411916,226277068,39.1,4071,21717,"Mar 3, 2017",Twentieth Century Fox,5.7,2017,Action,Super Hero,127000000
+93,Skyfall,88364714,304360277,0.29,3505,25211,"Nov 9, 2012",Sony Pictures Releasing,8.2,2012,Action,Contemporary Fiction,200000000
+94,Spider-Man 2,88156227,373585825,23.6,4152,21232,"Jun 30, 2004",Sony Pictures Releasing,7.2,2004,Adventure,Super Hero,200000000
+95,Fast Five,86198765,209837675,41.1,3644,23654,"Apr 29, 2011",Universal Pictures,6.2,2011,Action,Contemporary Fiction,125000000
+96,The Hangover Part II,85946294,254464305,33.8,3615,23774,"May 26, 2011",Warner Bros.,5.9,2011,Comedy,Contemporary Fiction,80000000
+97,Thor: The Dark World,85737841,206362140,41.6,3841,22321,"Nov 8, 2013",Walt Disney Studios Motion Pictures,6.2,2013,Action,Super Hero,150000000
+98,Fifty Shades of Grey,85171450,166167230,51.3,3646,23360,"Feb 13, 2015",Universal Pictures,5.0,2015,Drama,Contemporary Fiction,40000000
+99,Doctor Strange,85058311,232641920,36.6,3882,21910,"Nov 4, 2016",Walt Disney Studios Motion Pictures,6.3,2016,Action,Super Hero,165000000
+100,X-Men Origins: Wolverine,85058003,179883157,47.3,4099,20750,"May 1, 2009",Twentieth Century Fox,5.4,2009,Action,Super Hero,150000000
+101,The Hobbit: An Unexpected Journey,84617303,303003568,27.9,4045,20918,"Dec 14, 2012",Warner Bros.,6.8,2012,Adventure,Fantasy,200000000
+102,Solo: A Star Wars Story,84420489,213767512,39.5,4381,19269,"May 25, 2018",Walt Disney Studios Motion Pictures,5.2,2018,Adventure,Science Fiction,330400000
+103,The Passion of the Christ,83848082,370274604,22.6,3043,27554,"Feb 25, 2004",Newmarket Films,10.5,2004,Drama,Dramatization,25000000
+104,Despicable Me 2,83517315,368065385,22.7,3997,20895,"Jul 3, 2013",Universal Pictures,8.4,2013,Adventure,Kids Fiction,76000000
+105,Dune: Part Two,82505391,282144358,29.2,4071,20266,"Mar 1, 2024",Warner Bros.,6.9,2024,Action,Science Fiction,190000000
+106,Oppenheimer,82455420,330078895,0.25,361,22840,"Jul 21, 2023",Universal Pictures,10.1,2023,Drama,Dramatization,100000000
+107,Monsters University,82429469,268492764,30.7,4004,20586,"Jun 21, 2013",Walt Disney Studios Motion Pictures,6.2,2013,Adventure,Kids Fiction,200000000
+108,Black Widow,80366312,183651655,43.8,416,19318,"Jul 9, 2021",Walt Disney Studios Motion Pictures,6.0,2021,Action,Super Hero,200000000
+109,Venom,80255756,213515506,37.6,425,18883,"Oct 5, 2018",Sony Pictures Releasing,5.8,2018,Action,Super Hero,116000000
+110,Godzilla x Kong: The New Empire,80006561,196350016,40.8,3861,20721,"Mar 29, 2024",Warner Bros.,6.8,2024,Action,Science Fiction,135000000
+111,Five Nights at Freddy's,80001720,137275620,58.3,3675,21769,"Oct 27, 2023",Universal Pictures,4.4,2023,Horror,Contemporary Fiction,20000000
+112,Oz the Great and Powerful,79110453,234911825,33.7,3912,20222,"Mar 8, 2013",Walt Disney Studios Motion Pictures,7.1,2013,Adventure,Fantasy,200000000
+113,Harry Potter and the Half-Blood Prince,77835727,301959197,25.8,4325,17996,"Jul 15, 2009",Warner Bros.,6.1,2009,Adventure,Fantasy,250000000
+114,I Am Legend,77211321,256393010,30.1,3606,21411,"Dec 14, 2007",Warner Bros.,6.8,2007,Thriller,Science Fiction,150000000
+115,Harry Potter and the Order of the Phoenix,77108414,292004738,26.4,4285,17994,"Jul 11, 2007",Warner Bros.,6.1,2007,Adventure,Fantasy,150000000
+116,The Da Vinci Code,77073388,217536138,35.4,3735,20635,"May 19, 2006",Sony Pictures Releasing,6.2,2006,Adventure,Contemporary Fiction,125000000
+117,Avatar,77025481,749766139,10.3,3452,22313,"Dec 18, 2009",Twentieth Century Fox,14.8,2009,Action,Science Fiction,237000000
+118,Halloween,76221545,159342015,47.8,3928,19404,"Oct 19, 2018",Universal Pictures,4.0,2018,Horror,Contemporary Fiction,10000000
+119,Ant-Man and The Wasp,75812205,216648740,0.35,4206,18024,"Jul 6, 2018",Walt Disney Studios Motion Pictures,5.9,2018,Action,Super Hero,130000000
+120,Shang-Chi and the Legend of the Ten Rings,75388688,224543292,33.6,43,17532,"Sep 3, 2021",Walt Disney Studios Motion Pictures,6.7,2021,Action,Super Hero,150000000
+121,Star Trek,75204289,257730019,29.2,3849,19538,"May 8, 2009",Paramount Pictures,7.4,2009,Action,Science Fiction,140000000
+122,Zootopia,75063401,341268248,0.22,3827,19614,"Mar 4, 2016",Walt Disney Studios Motion Pictures,9.8,2016,Adventure,Kids Fiction,150000000
+123,Fantastic Beasts and Where to Find Them,74403387,234037575,31.8,4144,17954,"Nov 18, 2016",Warner Bros.,6.4,2016,Adventure,Fantasy,180000000
+124,The Simpsons Movie,74036787,183135014,40.4,3922,18877,"Jul 27, 2007",Twentieth Century Fox,6.0,2007,Adventure,Contemporary Fiction,72500000
+125,John Wick: Chapter 4,73817950,187131806,39.4,3855,19148,"Mar 24, 2023",Lionsgate,6.5,2023,Action,Contemporary Fiction,100000000
+126,The Hobbit: The Desolation of Smaug,73645197,258366855,28.5,3903,18868,"Dec 13, 2013",Warner Bros.,6.4,2013,Adventure,Fantasy,250000000
+127,Dawn of the Planet of the Apes,72611427,208545589,34.8,3967,18303,"Jul 11, 2014",Twentieth Century Fox,5.5,2014,Adventure,Science Fiction,170000000
+128,Despicable Me 3,72434025,264624300,27.4,4529,15993,"Jun 30, 2017",Universal Pictures,7.8,2017,Adventure,Kids Fiction,75000000
+129,Sonic the Hedgehog 2,72105176,190872904,37.8,4234,17030,"Apr 8, 2022",Paramount Pictures,7.5,2022,Adventure,Kids Fiction,90000000
+130,Eternals,71297219,164870234,43.2,409,17432,"Nov 5, 2021",Walt Disney Studios Motion Pictures,6.0,2021,Action,Super Hero,200000000
+131,Us,71117625,175084580,40.6,3741,19010,"Mar 22, 2019",Universal Pictures,5.0,2019,Horror,Contemporary Fiction,4500000
+132,Fast & Furious,70950500,155064265,45.8,3461,20500,"Apr 3, 2009",Universal Pictures,5.6,2009,Action,Contemporary Fiction,85000000
+133,300,70885301,210614939,33.7,3103,22844,"Mar 9, 2007",Warner Bros.,6.8,2007,Action,Historical Fiction,60000000
+134,Shrek Forever After,70838207,238736787,29.7,4359,16251,"May 21, 2010",DreamWorks,5.9,2010,Adventure,Kids Fiction,165000000
+135,Transformers,70502384,319246193,22.1,4011,17577,"Jul 3, 2007",DreamWorks,6.4,2007,Action,Science Fiction,151000000
+136,The Incredibles,70467623,261441092,0.27,3933,17917,"Nov 5, 2004",Walt Disney Studios Motion Pictures,8.3,2004,Adventure,Super Hero,92000000
+137,Spectre,70403148,200074609,35.2,3929,17918,"Nov 6, 2015",Sony Pictures Releasing,6.0,2015,Action,Contemporary Fiction,245000000
+138,Dr. Seuss' the Lorax,70217070,214151550,32.8,3729,18830,"Mar 2, 2012",Universal Pictures,7.8,2012,Adventure,Kids Fiction,67500000
+139,Star Trek Into Darkness,70165559,228778661,30.7,3868,18140,"May 16, 2013",Paramount Pictures,5.8,2013,Adventure,Science Fiction,190000000
+140,F9 The Fast Saga,70043165,173005945,40.5,4179,16760,"Jun 25, 2021",Universal Pictures,6.2,2021,Action,Contemporary Fiction,200000000
+141,Twilight,69637740,192769854,36.1,3419,20367,"Nov 21, 2008",Summit Entertainment,7.3,2008,Drama,Fantasy,37000000
+142,Maleficent,69431298,241410378,28.8,3948,17586,"May 30, 2014",Walt Disney Studios Motion Pictures,7.4,2014,Adventure,Fantasy,180000000
+143,The Bourne Ultimatum,69283690,227471070,30.5,366,18929,"Aug 3, 2007",Universal Pictures,8.2,2007,Thriller,Contemporary Fiction,130000000
+144,Pitch Perfect 2,69216890,184296230,37.6,3473,19930,"May 15, 2015",Universal Pictures,5.8,2015,Comedy,Contemporary Fiction,29000000
+145,The LEGO Movie,69050279,257760692,26.8,3775,18291,"Feb 7, 2014",Warner Bros.,8.4,2014,Adventure,Kids Fiction,60000000
+146,The Day After Tomorrow,68743584,186740799,36.8,3425,20071,"May 28, 2004",Twentieth Century Fox,5.8,2004,Adventure,Science Fiction,125000000
+147,Up,68108790,293004164,23.2,3766,18085,"May 29, 2009",Walt Disney Studios Motion Pictures,7.8,2009,Adventure,Contemporary Fiction,175000000
+148,Ice Age: The Meltdown,68033544,195330621,34.8,3964,17162,"Mar 31, 2006",Twentieth Century Fox,6.9,2006,Adventure,Kids Fiction,75000000
+149,Cinderella,67877361,201151353,33.7,3845,17653,"Mar 13, 2015",Walt Disney Studios Motion Pictures,7.3,2015,Drama,Fantasy,95000000
+150,Aquaman,67873522,335061807,20.3,4125,16454,"Dec 21, 2018",Warner Bros.,7.5,2018,Action,Super Hero,160000000
+151,Dr. Seuss' The Grinch,67572855,271740675,24.9,4141,16318,"Nov 9, 2018",Universal Pictures,7.7,2018,Adventure,Kids Fiction,75000000
+152,Quantum of Solace,67528882,168368427,40.1,3451,19567,"Nov 14, 2008",Sony Pictures Releasing,6.0,2008,Action,Contemporary Fiction,230000000
+153,Fast X,67017410,146126015,45.9,4046,16563,"May 19, 2023",Universal Pictures,4.3,2023,Action,Contemporary Fiction,340000000
+154,Black Adam,67004323,168152111,39.8,4402,15221,"Oct 21, 2022",Warner Bros.,6.5,2022,Action,Super Hero,200000000
+155,World War Z,66411834,202359711,32.8,3607,18411,"Jun 21, 2013",Paramount Pictures,5.9,2013,Action,Science Fiction,190000000
+156,Brave,66323594,237283207,0.28,4164,15927,"Jun 22, 2012",Walt Disney Studios Motion Pictures,7.3,2012,Adventure,Kids Fiction,185000000
+157,Cars 2,66135507,191452396,34.5,4115,16071,"Jun 24, 2011",Walt Disney Studios Motion Pictures,6.3,2011,Adventure,Kids Fiction,200000000
+158,X-Men: Apocalypse,65769562,155442489,42.3,415,15848,"May 27, 2016",Twentieth Century Fox,4.2,2016,Action,Super Hero,178000000
+159,Thor,65723338,181030624,36.3,3955,16617,"May 6, 2011",Paramount Pictures,5.7,2011,Action,Super Hero,150000000
+160,Teenage Mutant Ninja Turtles,65575105,191204754,34.3,3845,17054,"Aug 8, 2014",Paramount Pictures,7.0,2014,Adventure,Super Hero,125000000
+161,"The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",65556312,291710957,22.5,3616,18129,"Dec 9, 2005",Walt Disney Studios Motion Pictures,8.7,2005,Adventure,Fantasy,180000000
+162,2012,65237614,166112167,39.3,3404,19164,"Nov 13, 2009",Sony Pictures Releasing,6.4,2009,Adventure,Science Fiction,200000000
+163,Captain America: The First Avenger,65058524,176654505,36.8,3715,17512,"Jul 22, 2011",Paramount Pictures,5.7,2011,Action,Super Hero,140000000
+164,War of the Worlds,64878725,234280354,27.7,3908,16601,"Jun 29, 2005",Paramount Pictures,6.1,2005,Action,Science Fiction,132000000
+165,The Twilight Saga: Eclipse,64832191,300531751,21.6,4468,14510,"Jun 30, 2010",Summit Entertainment,5.5,2010,Drama,Fantasy,68000000
+166,Madagascar: Escape 2 Africa,63106589,180010950,35.1,4056,15558,"Nov 7, 2008",DreamWorks,6.7,2008,Adventure,Kids Fiction,150000000
+167,WALL-E,63087526,223808164,28.2,3992,15803,"Jun 27, 2008",Walt Disney Studios Motion Pictures,7.8,2008,Adventure,Science Fiction,180000000
+168,Pirates of the Caribbean: Dead Men Tell No Tales,62983253,172558876,36.5,4276,14729,"May 26, 2017",Walt Disney Studios Motion Pictures,5.2,2017,Adventure,Historical Fiction,230000000
+169,Inception,62785337,292576195,21.5,3792,16557,"Jul 16, 2010",Warner Bros.,8.2,2010,Thriller,Science Fiction,160000000
+170,Hancock,62603879,227946274,27.5,3965,15789,"Jul 2, 2008",Sony Pictures Releasing,5.8,2008,Action,Super Hero,150000000
+171,Bad Boys for Life,62504105,206305244,30.3,3.775,16557,"Jan 17, 2020",Sony Pictures Releasing,7.2,2020,Action,Contemporary Fiction,90000000
+172,Sherlock Holmes,62304277,209028679,29.8,3.626,17182,"Dec 25, 2009",Warner Bros.,6.8,2009,Adventure,Historical Fiction,90000000
+173,Fantastic Beasts: The Crimes of Grindelwald,62163104,159555901,0.4,4.163,14932,"Nov 16, 2018",Warner Bros.,5.1,2018,Adventure,Fantasy,200000000
+174,The Amazing Spider-Man,62004688,262030663,23.7,4.318,14359,"Jul 3, 2012",Sony Pictures Releasing,5.2,2012,Action,Super Hero,220000000
+175,Mission: Impossible - Fallout,61236534,220159104,27.8,4.386,13961,"Jul 27, 2018",Paramount Pictures,6.4,2018,Action,Contemporary Fiction,178000000
+176,Clash of the Titans,61235105,163214888,37.5,3.777,16212,"Apr 2, 2010",Warner Bros.,6.0,2010,Action,Fantasy,125000000
+177,Transformers: Rise of the Beasts,61045464,157341749,38.8,3.678,16597,"Jun 9, 2023",Paramount Pictures,5.3,2023,Action,Science Fiction,195000000
+178,Kong: Skull Island,61025472,168052812,36.3,3.846,15867,"Mar 10, 2017",Warner Bros.,6.0,2017,Adventure,Science Fiction,185000000
+179,Indiana Jones and the Dial of Destiny,60368101,174480468,34.6,4.6,13123,"Jun 30, 2023",Walt Disney Studios Motion Pictures,4.6,2023,Adventure,Historical Fiction,300000000
+180,Madagascar 3: Europe's Most Wanted,60316738,216391482,27.9,4.258,14165,"Jun 8, 2012",DreamWorks,6.3,2012,Adventure,Kids Fiction,145000000
+181,Kung Fu Panda,60239130,215727546,27.9,4.114,14642,"Jun 6, 2008",DreamWorks,6.8,2008,Adventure,Kids Fiction,130000000
+182,Straight Outta Compton,60200180,161197785,37.4,2.757,21835,"Aug 14, 2015",Universal Pictures,5.7,2015,Drama,Dramatization,28000000
+183,Cars,60119509,244082982,24.6,3.985,15086,"Jun 9, 2006",Walt Disney Studios Motion Pictures,7.7,2006,Adventure,Kids Fiction,70000000
+184,Fast & Furious Presents: Hobbs & Shaw,60038950,173956935,34.5,4.253,14116,"Aug 2, 2019",Universal Pictures,6.2,2019,Action,Contemporary Fiction,200000000
+185,Monsters vs. Aliens,59321095,198351526,29.9,4.104,14454,"Mar 27, 2009",DreamWorks,7.4,2009,Adventure,Kids Fiction,175000000
+186,Star Trek Beyond,59253211,158848340,37.3,3.928,15084,"Jul 22, 2016",Paramount Pictures,5.2,2016,Adventure,Science Fiction,185000000
+187,Jumanji: The Next Level,59251543,320314960,18.5,4.227,14017,"Dec 13, 2019",Sony Pictures Releasing,9.8,2019,Adventure,Science Fiction,125000000
+188,Jason Bourne,59215365,162434410,36.4,4.026,14708,"Jul 29, 2016",Universal Pictures,5.6,2016,Action,Contemporary Fiction,120000000
+189,Kingdom of the Planet of the Apes,58400788,171130165,34.1,4.075,14331,"May 10, 2024",20th Century Studios,6.6,2024,Action,Science Fiction,160000000
+190,Creed III,58370007,156248615,37.4,4.007,14567,"Mar 3, 2023",United Artists Releasing,5.5,2023,Drama,Contemporary Fiction,75000000
+191,Fantastic Four: Rise of the Silver Surfer,58051684,131921738,0.4,3.959,14663,"Jun 15, 2007",Twentieth Century Fox,4.5,2007,Action,Super Hero,120000000
+192,Sonic the Hedgehog,58018348,148974665,0.4,4.167,13923,"Feb 14, 2020",Paramount Pictures,4.6,2020,Adventure,Kids Fiction,90000000
+193,Kung Fu Panda 4,57989905,193590620,0.3,4.035,14371,"Mar 8, 2024",Universal Pictures,8.4,2024,Comedy,Kids Fiction,85000000
+194,Ant-Man,57225526,180202163,31.8,3.856,14840,"Jul 17, 2015",Walt Disney Studios Motion Pictures,6.7,2015,Action,Super Hero,130000000
+195,22 Jump Street,57071445,191719337,29.8,3.306,17262,"Jun 13, 2014",Sony Pictures Releasing,6.7,2014,Comedy,Contemporary Fiction,50000000
+196,Sex and the City,57038404,152647258,37.4,3.285,17363,"May 30, 2008",Warner Bros.,5.5,2008,Comedy,Contemporary Fiction,57500000
+197,John Wick: Chapter 3 -- Parabellum,56818067,171015687,33.2,3.85,14757,"May 17, 2019",Lionsgate,6.2,2019,Action,Contemporary Fiction,75000000
+198,Moana,56631401,248757044,22.8,3.875,14614,"Nov 23, 2016",Walt Disney Studios Motion Pictures,8.2,2016,Musical,Kids Fiction,150000000
+199,Despicable Me,56397125,251639815,22.4,3.476,16224,"Jul 9, 2010",Universal Pictures,9.3,2010,Adventure,Kids Fiction,69000000
+200,War for the Planet of the Apes,56262929,146880162,38.3,4.022,13988,"Jul 14, 2017",Twentieth Century Fox,5.4,2017,Action,Science Fiction,152000000
+201,Ralph Breaks the Internet,56237634,201091711,0.3,4.017,13999,"Nov 21, 2018",Walt Disney Studios Motion Pictures,7.6,2018,Adventure,Kids Fiction,175000000
+202,Snow White and the Huntsman,56217700,155332381,36.2,3.773,14900,"Jun 1, 2012",Universal Pictures,5.4,2012,Adventure,Fantasy,170000000
+203,Big Hero 6,56215889,222527828,25.3,3.761,14947,"Nov 7, 2014",Walt Disney Studios Motion Pictures,8.7,2014,Adventure,Super Hero,165000000
+204,Charlie and the Chocolate Factory,56178450,206459076,27.2,3.77,14901,"Jul 15, 2005",Warner Bros.,7.7,2005,Adventure,Kids Fiction,150000000
+205,Fantastic Four,56061504,154696080,36.2,3.602,15563,"Jul 8, 2005",Twentieth Century Fox,5.9,2005,Action,Super Hero,87500000
+206,Gravity,55785112,274092705,20.4,3.575,15604,"Oct 4, 2013",Warner Bros.,9.2,2013,Thriller,Contemporary Fiction,110000000
+207,The Karate Kid,55665805,176591618,31.5,3.663,15196,"Jun 11, 2010",Sony Pictures Releasing,5.7,2010,Action,Contemporary Fiction,40000000
+208,Mission: Impossible Rogue Nation,55520089,195042377,28.5,3.956,14034,"Jul 31, 2015",Paramount Pictures,7.0,2015,Action,Contemporary Fiction,150000000
+209,The Incredible Hulk,55414050,134806913,41.1,3.505,15810,"Jun 13, 2008",Universal Pictures,5.0,2008,Adventure,Super Hero,137500000
+210,The SpongeBob Movie: Sponge Out of Water,55365012,162994032,0.3,3.641,15205,"Feb 6, 2015",Paramount Pictures,7.0,2015,Adventure,Kids Fiction,74000000
+211,No Time to Die,55225007,160891007,34.3,4.407,12531,"Oct 8, 2021",Metro-Goldwyn-Mayer (MGM),6.3,2021,Action,Contemporary Fiction,250000000
+212,Watchmen,55214334,107509799,51.4,3.611,15290,"Mar 6, 2009",Warner Bros.,4.2,2009,Action,Super Hero,138000000
+213,X-Men: First Class,55101604,146408305,37.6,3.641,15133,"Jun 3, 2011",Twentieth Century Fox,4.8,2011,Action,Super Hero,160000000
+214,The Flash,55043679,108133313,50.9,4.234,13000,"Jun 16, 2023",Warner Bros.,3.3,2023,Action,Super Hero,200000000
+215,The Chronicles of Narnia: Prince Caspian,55034805,141621490,38.9,3.929,14007,"May 16, 2008",Walt Disney Studios Motion Pictures,5.4,2008,Adventure,Fantasy,225000000
+216,How to Train Your Dragon: The Hidden World,55022245,160799505,34.2,4.259,12919,"Feb 22, 2019",Universal Pictures,6.4,2019,Adventure,Kids Fiction,129000000
+217,Rise of the Planet of the Apes,54806191,176760185,0.3,3.648,15023,"Aug 5, 2011",Twentieth Century Fox,7.1,2011,Adventure,Science Fiction,93000000
+218,The Hobbit: The Battle of the Five Armies,54724334,255119788,21.4,3.875,14122,"Dec 17, 2014",Warner Bros.,5.6,2014,Adventure,Fantasy,250000000
+219,G.I. Joe: The Rise of Cobra,54713046,150201498,36.4,4.007,13654,"Aug 7, 2009",Paramount Pictures,6.2,2009,Action,Contemporary Fiction,175000000
+220,Mission: Impossible - Dead Reckoning Part One,54688347,172640980,31.7,4.327,12638,"Jul 12, 2023",Paramount Pictures,5.0,2023,Action,Contemporary Fiction,290000000
+221,Divergent,54607747,150947895,36.2,3.936,13873,"Mar 21, 2014",Lionsgate,6.5,2014,Adventure,Science Fiction,85000000
+222,Men in Black 3,54592779,179020854,30.5,4.248,12851,"May 25, 2012",Sony Pictures Releasing,5.6,2012,Action,Science Fiction,215000000
+223,San Andreas,54588173,155190832,35.2,3.777,14452,"May 29, 2015",Warner Bros.,5.8,2015,Adventure,Science Fiction,110000000
+224,Ted,54415205,218815487,24.9,3.239,16800,"Jun 29, 2012",Universal Pictures,7.6,2012,Comedy,Contemporary Fiction,50000000
+225,Pokémon Detective Pikachu,54365242,144105346,37.7,4.202,12937,"May 10, 2019",Warner Bros.,4.8,2019,Comedy,Kids Fiction,150000000
+226,The Martian,54308575,228433663,23.8,3.831,14176,"Oct 2, 2015",Twentieth Century Fox,8.3,2015,Adventure,Science Fiction,108000000
+227,Night at the Museum: Battle of the Smithsonian,54173286,177243721,30.6,4.096,13225,"May 22, 2009",Twentieth Century Fox,6.3,2009,Adventure,Fantasy,150000000
+228,The Nun,53807379,117450119,45.8,3.876,13882,"Sep 7, 2018",Warner Bros.,5.1,2018,Horror,Contemporary Fiction,22000000
+229,Cars 3,53688680,152901115,35.1,4.256,12614,"Jun 16, 2017",Walt Disney Studios Motion Pictures,5.7,2017,Adventure,Kids Fiction,175000000
+230,Shazam!,53505326,140371656,38.1,4.217,12688,"Apr 5, 2019",Warner Bros.,5.1,2019,Action,Super Hero,85000000
+231,Green Lantern,53174303,116601172,45.6,3.816,13934,"Jun 17, 2011",Warner Bros.,4.1,2011,Action,Super Hero,200000000
+232,The Wolverine,53113752,132556852,40.1,3.924,13535,"Jul 26, 2013",Twentieth Century Fox,4.7,2013,Action,Super Hero,115000000
+233,The LEGO Batman Movie,53003468,175750384,30.2,4.088,12965,"Feb 10, 2017",Warner Bros.,6.5,2017,Adventure,Kids Fiction,80000000
+234,Paranormal Activity 3,52568183,104028807,50.5,3.321,15829,"Oct 21, 2011",Paramount Pictures,4.7,2011,Horror,Contemporary Fiction,5000000
+235,Superman Returns,52535096,200081192,26.3,4.065,12923,"Jun 28, 2006",Warner Bros.,5.5,2006,Adventure,Super Hero,232000000
+236,The Bourne Supremacy,52521865,176241941,29.8,3.165,16594,"Jul 23, 2004",Universal Pictures,7.7,2004,Thriller,Contemporary Fiction,85000000
+237,The Divergent Series: Insurgent,52263680,130179072,40.2,3.875,13487,"Mar 20, 2015",Lionsgate,5.9,2015,Action,Science Fiction,110000000
+238,"I, Robot",52179887,144801023,0.4,3.42,15257,"Jul 16, 2004",Twentieth Century Fox,6.1,2004,Action,Science Fiction,105000000
+239,Home,52107731,177397510,29.4,3.708,14052,"Mar 27, 2015",Twentieth Century Fox,8.3,2015,Adventure,Kids Fiction,130000000
+240,Van Helsing,51748040,120177084,43.1,3.575,14474,"May 7, 2004",Universal Pictures,5.2,2004,Action,Historical Fiction,170000000
+241,Bohemian Rhapsody,51061119,216428042,23.6,4,12765,"Nov 2, 2018",Twentieth Century Fox,8.8,2018,Drama,Dramatization,55000000
+242,Prometheus,51050101,126477084,40.4,3.396,15032,"Jun 8, 2012",Twentieth Century Fox,4.2,2012,Thriller,Science Fiction,125000000
+243,Wanted,50927085,134508551,37.9,3.175,16040,"Jun 27, 2008",Universal Pictures,5.1,2008,Action,Science Fiction,75000000
+244,Coco,50802605,210460015,24.1,3.987,12742,"Nov 22, 2017",Walt Disney Studios Motion Pictures,7.7,2017,Musical,Kids Fiction,175000000
+245,The Village,50746142,114197520,44.4,3.73,13604,"Jul 30, 2004",Walt Disney Studios Motion Pictures,4.6,2004,Thriller,Contemporary Fiction,71682975
+246,Lightyear,50577961,118307188,42.8,4.255,11886,"Jun 17, 2022",Walt Disney Studios Motion Pictures,4.1,2022,Adventure,Kids Fiction,200000000
+247,Dunkirk,50513488,188045546,26.9,3.72,13578,"Jul 21, 2017",Warner Bros.,7.4,2017,Action,Dramatization,150000000
+248,Mr. & Mrs. Smith,50342878,186336279,0.3,3.424,14702,"Jun 10, 2005",Twentieth Century Fox,7.4,2005,Action,Contemporary Fiction,110000000
+249,Rush Hour 3,50237000,140125968,35.8,3.778,13297,"Aug 10, 2007",New Line Cinema,6.2,2007,Action,Contemporary Fiction,180000000
+250,A Quiet Place,50203562,188024361,26.7,3.508,14311,"Apr 6, 2018",Paramount Pictures,7.5,2018,Horror,Science Fiction,17000000
+251,The Boss Baby,50198902,175003033,28.7,3.773,13304,"Mar 31, 2017",Twentieth Century Fox,8.2,2017,Adventure,Kids Fiction,125000000
+252,King Kong,50130145,218080025,0.2,3.568,14049,"Dec 14, 2005",Universal Pictures,6.5,2005,Adventure,Fantasy,207000000
+253,The Great Gatsby,50085185,144840419,34.6,3.535,14168,"May 10, 2013",Warner Bros.,5.4,2013,Drama,Historical Fiction,190000000
+254,Taken 2,49514769,139854287,35.4,3.661,13524,"Oct 5, 2012",Twentieth Century Fox,6.6,2012,Thriller,Contemporary Fiction,45000000
+255,How to Train Your Dragon 2,49451322,177002924,27.9,4.253,11627,"Jun 13, 2014",Twentieth Century Fox,6.6,2014,Adventure,Fantasy,145000000
+256,Halloween Kills,49404980,92002155,53.7,3.705,13334,"Oct 15, 2021",Universal Pictures,4.6,2021,Horror,Contemporary Fiction,20000000
+257,Wreck-It Ralph,49038712,189422889,25.9,3.752,13070,"Nov 2, 2012",Walt Disney Studios Motion Pictures,8.5,2012,Adventure,Kids Fiction,165000000
+258,Neighbors,49033915,150157400,32.7,3.279,14953,"May 9, 2014",Universal Pictures,6.2,2014,Comedy,Contemporary Fiction,18000000
+259,Alvin and the Chipmunks: The Squeakquel,48875415,219614612,22.3,3.7,13209,"Dec 23, 2009",Twentieth Century Fox,7.2,2009,Adventure,Kids Fiction,70000000
+260,Tangled,48767052,200821936,24.3,3.603,13535,"Nov 24, 2010",Walt Disney Studios Motion Pictures,9.0,2010,Adventure,Kids Fiction,260000000
+261,Batman Begins,48745440,205343774,23.7,3.858,12634,"Jun 15, 2005",Warner Bros.,6.8,2005,Action,Super Hero,150000000
+262,Hotel Transylvania 2,48464322,169700110,28.6,3.754,12910,"Sep 25, 2015",Sony Pictures Releasing,7.4,2015,Adventure,Kids Fiction,80000000
+263,The Fault in Our Stars,48002523,124872350,38.4,3.173,15128,"Jun 6, 2014",Twentieth Century Fox,5.3,2014,Drama,Contemporary Fiction,12000000
+264,Godzilla: King of the Monsters,47776293,110500138,43.2,4.108,11630,"May 31, 2019",Warner Bros.,4.2,2019,Action,Science Fiction,170000000
+265,Mission: Impossible III,47743273,134029801,35.6,4.054,11776,"May 5, 2006",Paramount Pictures,5.4,2006,Action,Contemporary Fiction,150000000
+266,Kung Fu Panda 2,47656302,165249063,28.8,3.925,12141,"May 26, 2011",DreamWorks,5.7,2011,Adventure,Kids Fiction,150000000
+267,The Longest Yard,47606480,158119460,30.1,3.634,13100,"May 27, 2005",Paramount Pictures,6.3,2005,Comedy,Contemporary Fiction,82000000
+268,A Quiet Place Part II,47547231,160072261,29.7,3.726,12760,"May 28, 2021",Paramount Pictures,7.7,2021,Horror,Science Fiction,61000000
+269,Interstellar,47510360,188020017,25.3,3.561,13341,"Nov 5, 2014",Paramount Pictures,7.3,2014,Adventure,Science Fiction,165000000
+270,Madagascar,47224594,193595521,24.4,4.131,11431,"May 27, 2005",DreamWorks Distribution,7.4,2005,Adventure,Kids Fiction,75000000
+271,Talladega Nights: The Ballad of Ricky Bobby,47042215,148213377,31.7,3.803,12369,"Aug 4, 2006",Sony Pictures Releasing,6.5,2006,Comedy,Contemporary Fiction,73000000
+272,Ratatouille,47027395,206445654,22.8,3.94,11935,"Jun 29, 2007",Walt Disney Studios Motion Pictures,7.5,2007,Adventure,Kids Fiction,150000000
+273,Troy,46865412,133378256,35.1,3.411,13739,"May 14, 2004",Warner Bros.,5.5,2004,Action,Historical Fiction,150000000
+274,The Secret Life of Pets 2,46652680,158980250,29.3,4.561,10228,"Jun 7, 2019",Universal Pictures,5.7,2019,Adventure,Kids Fiction,80000000
+275,Ice Age: Continental Drift,46629259,161321843,28.9,3.881,12014,"Jul 13, 2012",Twentieth Century Fox,7.0,2012,Adventure,Fantasy,95000000
+276,Fifty Shades Darker,46607250,114581250,40.7,3.71,12562,"Feb 10, 2017",Universal Pictures,4.1,2017,Drama,Contemporary Fiction,55000000
+277,Trolls,46581142,153856089,30.3,4.06,11473,"Nov 4, 2016",Twentieth Century Fox,6.4,2016,Adventure,Kids Fiction,125000000
+278,Angels & Demons,46204168,133375846,34.6,3.527,13100,"May 15, 2009",Sony Pictures Releasing,5.8,2009,Thriller,Contemporary Fiction,150000000
+279,Meet the Fockers,46120980,279261160,16.5,3.518,13110,"Dec 22, 2004",Universal Pictures,8.4,2004,Comedy,Contemporary Fiction,60000000
+280,The Marvels,46110859,84500223,54.6,4.03,11441,"Nov 10, 2023",Walt Disney Studios Motion Pictures,4.1,2023,Adventure,Super Hero,270000000
+281,Ghostbusters,46018755,128350574,35.8,3.963,11612,"Jul 15, 2016",Sony Pictures Releasing,4.7,2016,Comedy,Science Fiction,144000000
+282,Megamind,46016833,148415853,0.3,3.944,11667,"Nov 5, 2010",DreamWorks,6.4,2010,Adventure,Kids Fiction,130000000
+283,Dumbo,45990748,114766307,40.1,4.259,10798,"Mar 29, 2019",Walt Disney Studios Motion Pictures,5.2,2019,Adventure,Kids Fiction,170000000
+284,Mad Max: Fury Road,45428128,153636354,29.6,3.702,12271,"May 15, 2015",Warner Bros.,5.6,2015,Action,Science Fiction,150000000
+285,The Meg,45402195,145443742,31.2,4.118,11025,"Aug 10, 2018",Warner Bros.,6.5,2018,Action,Science Fiction,178000000
+286,Ghost Rider,45388836,115802596,39.2,3.619,12541,"Feb 16, 2007",Sony Pictures Releasing,5.7,2007,Action,Super Hero,120000000
+287,300: Rise of an Empire,45038460,106580051,42.3,3.47,12979,"Mar 7, 2014",Warner Bros.,4.6,2014,Action,Historical Fiction,110000000
+288,Dr. Seuss' Horton Hears a Who!,45012998,154529439,29.1,3.954,11384,"Mar 14, 2008",Twentieth Century Fox,7.3,2008,Adventure,Fantasy,85000000
+289,Ghostbusters: Frozen Empire,45004673,113376590,39.7,4.345,10357,"Mar 22, 2024",Sony Pictures Releasing,6.1,2024,Comedy,Science Fiction,100000000
+290,The Hangover,44979319,277322503,16.2,3.269,13759,"Jun 5, 2009",Warner Bros.,10.1,2009,Comedy,Contemporary Fiction,35000000
+291,National Treasure: Book of Secrets,44783772,219964115,20.4,3.832,11686,"Dec 21, 2007",Walt Disney Studios Motion Pictures,7.1,2007,Adventure,Contemporary Fiction,130000000
+292,Transformers: The Last Knight,44680073,130168683,34.3,4.069,10980,"Jun 21, 2017",Paramount Pictures,3.9,2017,Action,Science Fiction,217000000
+293,The Hunger Games: The Ballad of Songbirds & Snakes,44607143,166350594,26.8,3.776,11813,"Nov 17, 2023",Lionsgate,6.9,2023,Action,Science Fiction,100000000
+294,Scream VI,44447270,108391107,0.4,3.675,12094,"Mar 10, 2023",Paramount Pictures,4.9,2023,Horror,Contemporary Fiction,33000000
+295,Nope,44366910,123277080,0.4,3.785,11721,"Jul 22, 2022",Universal Pictures,5.6,2022,Horror,Science Fiction,68000000
+296,The Peanuts Movie,44213073,130178411,0.3,3.897,11345,"Nov 6, 2015",Twentieth Century Fox,5.9,2015,Adventure,Kids Fiction,99000000
+297,Hotel Transylvania 3: Summer Vacation,44076225,167510016,26.3,4.267,10329,"Jul 13, 2018",Sony Pictures Releasing,6.4,2018,Adventure,Kids Fiction,65000000
+298,Tron: Legacy,44026211,172062763,25.6,3.451,12757,"Dec 17, 2010",Walt Disney Studios Motion Pictures,6.4,2010,Adventure,Science Fiction,200000000
+299,Uncharted,44010155,148648820,29.6,4.275,10294,"Feb 18, 2022",Sony Pictures Releasing,7.8,2022,Adventure,Contemporary Fiction,120000000
+300,Ghostbusters: Afterlife,44008406,129360575,0.3,4.315,10198,"Nov 19, 2021",Sony Pictures Releasing,6.9,2021,Comedy,Science Fiction,75000000
+301,Lucy,43899340,126663600,34.7,3.173,13835,"Jul 25, 2014",Universal Pictures,6.1,2014,Action,Science Fiction,40000000
+302,How to Train Your Dragon,43732319,217581231,20.1,4.055,10784,"Mar 26, 2010",DreamWorks,8.2,2010,Adventure,Fantasy,165000000
+303,Noah,43720472,101200044,43.2,3.567,12256,"Mar 28, 2014",Paramount Pictures,4.7,2014,Drama,Historical Fiction,130000000
+304,The Croods,43639736,187168425,23.3,4.046,10785,"Mar 22, 2013",Twentieth Century Fox,8.6,2013,Adventure,Kids Fiction,135000000
+305,Hitch,43142214,179495555,0.2,3.575,12067,"Feb 11, 2005",Sony Pictures Releasing,7.9,2005,Romantic Comedy,Contemporary Fiction,55000000
+306,A Star Is Born,42908051,215288866,19.9,3.686,11640,"Oct 5, 2018",Warner Bros.,9.4,2018,Drama,Contemporary Fiction,36000000
+307,Terminator Salvation,42558390,125322469,0.3,3.53,12056,"May 21, 2009",Warner Bros.,5.0,2009,Action,Science Fiction,200000000
+308,Hotel Transylvania,42522194,148313048,28.7,3.349,12696,"Sep 28, 2012",Sony Pictures Releasing,7.9,2012,Adventure,Kids Fiction,85000000
+309,Fantastic Beasts: The Secrets of Dumbledore,42151256,95850844,0.4,4.208,10016,"Apr 15, 2022",Warner Bros.,5.1,2022,Adventure,Fantasy,200000000
+310,High School Musical 3: Senior Year,42030184,90559416,46.4,3.623,11600,"Oct 24, 2008",Walt Disney Studios Motion Pictures,5.5,2008,Musical,Contemporary Fiction,11000000
+311,The Conjuring,41855326,137400141,30.5,2.903,14417,"Jul 19, 2013",Warner Bros.,6.0,2013,Horror,Fantasy,20000000
+312,Ready Player One,41764050,137690172,30.3,4.234,9863,"Mar 29, 2018",Warner Bros.,5.1,2018,Adventure,Science Fiction,150000000
+313,Ice Age: Dawn of the Dinosaurs,41690382,196573705,21.2,4.099,10170,"Jul 1, 2009",Twentieth Century Fox,5.9,2009,Adventure,Kids Fiction,90000000
+314,The Hangover Part III,41671198,112200072,37.1,3.555,11721,"May 23, 2013",Warner Bros.,4.4,2013,Comedy,Contemporary Fiction,103000000
+315,Ocean's 8,41607378,140218711,29.7,4.145,10037,"Jun 8, 2018",Warner Bros.,5.4,2018,Comedy,Contemporary Fiction,70000000
+316,Happy Feet,41533432,198000317,21,3804,10918,"Nov 17, 2006",Warner Bros.,8.8,2006,Musical,Kids Fiction,85000000
+317,Ride Along,41516170,134938200,30.8,2663,15590,"Jan 17, 2014",Universal Pictures,7.5,2014,Comedy,Contemporary Fiction,25000000
+318,Grown Ups 2,41508572,133668525,31,3491,11890,"Jul 12, 2013",Sony Pictures Releasing,5.8,2013,Comedy,Contemporary Fiction,80000000
+319,Kung Fu Panda 3,41282042,143528619,28.8,3955,10437,"Jan 29, 2016",Twentieth Century Fox,6.7,2016,Adventure,Kids Fiction,140000000
+320,The Vow,41202458,125014030,33,2958,13929,"Feb 10, 2012",Screen Gems,6.5,2012,Drama,Historical Fiction,30000000
+321,Once Upon a Time... In Hollywood,41082018,142502728,28.8,3659,11227,"Jul 26, 2019",Sony Pictures Releasing,7.0,2019,Thriller,Dramatization,90000000
+322,Shutter Island,41062440,128012934,32.1,2991,13728,"Feb 19, 2010",Paramount Pictures,6.5,2010,Thriller,Historical Fiction,80000000
+323,Independence Day: Resurgence,41039944,103144286,39.8,413,9937,"Jun 24, 2016",Twentieth Century Fox,3.8,2016,Action,Science Fiction,165000000
+324,Tyler Perry's Madea Goes to Jail,41030947,90508336,45.3,2032,20192,"Feb 20, 2009",Lionsgate,5.7,2009,Comedy,Contemporary Fiction,17500000
+325,Dune,41011174,108327830,37.9,4125,9942,"Oct 22, 2021",Warner Bros.,6.4,2021,Action,Science Fiction,165000000
+326,Paranormal Activity 2,40678424,84752907,48,3216,12648,"Oct 22, 2010",Paramount Pictures,4.4,2010,Horror,Contemporary Fiction,3000000
+327,Friday the 13th,40570365,65002019,62.4,3105,13066,"Feb 13, 2009",Warner Bros.,3.9,2009,Horror,Fantasy,17000000
+328,Grown Ups,40506562,162001186,25,3534,11461,"Jun 25, 2010",Sony Pictures Releasing,6.8,2010,Comedy,Contemporary Fiction,75000000
+329,G.I. Joe: Retaliation,40501814,122523060,33.1,3719,10890,"Mar 28, 2013",Paramount Pictures,5.7,2013,Action,Contemporary Fiction,140000000
+330,The Mummy: Tomb of the Dragon Emperor,40457770,102491776,39.5,376,10760,"Aug 1, 2008",Universal Pictures,4.7,2008,Adventure,Fantasy,175000000
+331,The Conjuring 2,40406314,102470008,39.4,3343,12086,"Jun 10, 2016",Warner Bros.,4.2,2016,Horror,Fantasy,40000000
+332,Glass,40328920,111048468,36.3,3841,10499,"Jan 18, 2019",Universal Pictures,5.3,2019,Thriller,Contemporary Fiction,20000000
+333,The Last Airbender,40325019,131772187,30.6,3169,12724,"Jul 1, 2010",Paramount Pictures,4.6,2010,Adventure,Fantasy,150000000
+334,Saban's Power Rangers,40300288,85364450,47.2,3693,10912,"Mar 24, 2017",Lionsgate,4.3,2017,Action,Kids Fiction,120000000
+335,Insidious: Chapter 2,40272103,83586447,48.2,3049,13208,"Sep 13, 2013",FilmDistrict,5.9,2013,Horror,Contemporary Fiction,5000000

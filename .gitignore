@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+critic_reviews.csv
+user_reviews_filtered.csv
+*.nb.html
