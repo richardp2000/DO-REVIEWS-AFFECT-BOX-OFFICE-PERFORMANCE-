@@ -44,15 +44,15 @@ The data cleaning, wrangling, transformation, and statistical analysis for this 
 
 For replication purposes, I recommend using **R / RStudio**, as the reproducible portions of the data-processing and analysis workflow are contained in the R Markdown (`.Rmd`) notebooks in this repository.
 
-The project contains two different cleaning notebooks.
+The project contains an original cleaning notebook.
 
 `Cleaning.Rmd` represents the original data-cleaning workflow used during the thesis. However, some of the original review datasets were too large to upload to GitHub.
 
-For this reason, `Cleaning_Filtered.Rmd` provides a more practical starting point for anyone interested in reproducing the analysis using the cleaned datasets available in this repository.
+For this reason, `Import_Cleaned_Data.Rmd` provides a more practical starting point for anyone interested in reproducing the analysis results using the cleaned datasets available in this repository.
 
 The intended replication workflow is therefore:
 
-**Cleaned Data → Cleaning_Filtered.Rmd → Analysis.Rmd → Statistical Results**
+**Import_Cleaned_Data.Rmd → Analysis.Rmd → Statistical Results**
 
 Users who have access to the original raw datasets can instead follow the complete workflow contained in `Cleaning.Rmd`.
 
@@ -62,7 +62,7 @@ Users who have access to the original raw datasets can instead follow the comple
 
 | File | Description |
 |---|---|
-| `Cleaning_Filtered.Rmd` | A simplified and reproducible version of the data-cleaning workflow. The original Rotten Tomatoes review files were too large to upload to GitHub, so this notebook begins from the cleaned analysis datasets included in this repository. This is the recommended starting point for most users. |
+| `Import_Cleaned_Data.Rmd` | A notebook to import the final cleaned datasets without the cleaning portion. The original Rotten Tomatoes review files were too large to upload to GitHub, for that reason I exported the final datasets as a CSV to be imported in this notebook. This is the recommended starting point for most users. |
 | `Cleaning.Rmd` | The original cleaning notebook used during the thesis. It documents the broader data-processing procedure, including the steps used to process and merge the original datasets. Some source files required by this notebook are not included in the repository because of GitHub file-size limitations. |
 | `Analysis.Rmd` | The primary statistical-analysis notebook. It contains descriptive statistics, visualizations, Pearson correlation analyses, regression models, moderation analyses, transformations, and model-assumption testing used in the thesis. |
 | `Buzz/` | Contains the Google Trends search-interest data collected for the movies in the final sample. Google Trends data was collected individually for the films and later merged with the review and financial datasets. |
@@ -92,9 +92,9 @@ Additional information on the length of a film's theatrical run was obtained fro
 
 ### Review Data
 
-Critic and user review data originated from a publicly available **Rotten Tomatoes dataset hosted on Kaggle**.
+Critic and user review data originated from a publicly available **Rotten Tomatoes** dataset hosted on **Kaggle**.
 
-The original dataset contains a very large number of individual reviews and therefore could not be included in full in this repository.
+The original dataset contains a very large number of individual reviews and therefore could not be included in full in this repository due to the file size limit.
 
 The analysis distinguishes between:
 
