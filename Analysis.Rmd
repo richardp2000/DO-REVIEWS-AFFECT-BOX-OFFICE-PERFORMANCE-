@@ -9,6 +9,15 @@ output: html_notebook
 
 ## Preliminary Tasks
 
+Turn categorical variables into factors.
+
+```{r}
+# Convert categorical variables to factors
+critic_analysis_data$release_season <- factor(critic_analysis_data$release_season)
+critic_analysis_data$maingenre <- factor(critic_analysis_data$maingenre)
+critic_analysis_data$sidegenre <- factor(critic_analysis_data$sidegenre)
+```
+
 Before running the regressions, verify the reference category used for the categorical variable `release_season`. 
 In R, the first factor level is used as the reference category in the regression model.
 
@@ -393,6 +402,15 @@ rm(p1, p2, p3, p4)
 ---
 
 ## Preliminary Tasks
+
+Turn categorical variables into factors.
+
+```{r}
+# Convert categorical variables to factors
+user_analysis_data$release_season <- factor(user_analysis_data$release_season)
+user_analysis_data$maingenre <- factor(user_analysis_data$maingenre)
+user_analysis_data$sidegenre <- factor(user_analysis_data$sidegenre)
+```
 
 Before running the regressions, verify the reference category used for the categorical variable `release_season`. 
 In R, the first factor level is used as the reference category in the regression model.
