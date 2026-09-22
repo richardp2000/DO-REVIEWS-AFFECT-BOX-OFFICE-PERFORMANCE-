@@ -52,7 +52,7 @@ For this reason, `Import_Cleaned_Data.Rmd` provides a more practical starting po
 
 The intended replication workflow is therefore:
 
-**Import_Cleaned_Data.Rmd → Analysis.Rmd → Statistical Results**
+**Import_Cleaned_Data.Rmd → Analysis.Rmd**
 
 Users who have access to the original raw datasets can instead follow the complete workflow contained in `Cleaning.Rmd`.
 
