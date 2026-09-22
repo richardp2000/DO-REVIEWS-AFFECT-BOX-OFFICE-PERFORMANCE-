@@ -127,7 +127,7 @@ The main variables used in the project are summarized below.
 
 Box office legs represent the dependent variable of this study and were calculated as:
 
-`text Box Office Legs = Total Domestic Gross / Opening Weekend Gross`text
+  `Box Office Legs = Total Domestic Gross / Opening Weekend Gross`
 
 ### Review Volume (IV)
 
@@ -145,7 +145,7 @@ The numerical score used is called scoreSentiment which is part of the Rotten To
 
 Scores below 3.0 are classified as negative, while scores of 3.0 or higher are classified as positive.
 
-`text score < 3.0 ~ "NEGATIVE"`text `text - score >= 3.0 ~ "POSITIVE"`text
+  `score < 3.0 ~ "NEGATIVE"`text `text - score >= 3.0 ~ "POSITIVE"`
 
 ### Average Buzz (Moderator)
 
