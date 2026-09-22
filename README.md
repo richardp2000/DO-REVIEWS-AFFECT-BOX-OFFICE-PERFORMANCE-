@@ -170,6 +170,13 @@ Daily search-interest values are averaged across the collected five-week period:
 
 `Average Buzz = Mean of Available Daily Search-Interest Values`
 
+### Theatrical Window
+
+The theatrical window is a movie-specific filtering period used to select critic and user reviews. It begins on each movie's theatrical release date and ends on an estimated date calculated from its recorded number of weeks in theaters.
+
+`Theatrical End Date = Release Date + (Weeks in Theater × 7 days)`
+
+Only reviews published within this period, including both boundary dates, are retained. These reviews are then used to calculate review volume and review valence separately for critics and users.
 
 ### Variable Transformations
 
