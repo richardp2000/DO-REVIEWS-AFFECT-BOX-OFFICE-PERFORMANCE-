@@ -121,39 +121,62 @@ The daily Google Trends values were averaged across this period to create the va
 
 ## Variable Construction
 
-The main variables used in the project are summarized below.
+The main variables used in the project are summarized below. Review measures are calculated separately for critic and user reviews, with each resulting dataset containing one observation per movie.
 
 ### Box Office Legs (DV)
 
-Box office legs represent the dependent variable of this study and were calculated as:
+Box office legs are the continuous dependent variable used to measure a movie's theatrical performance relative to its opening weekend. Higher values indicate that a movie earned more over its full theatrical run relative to its initial earnings.
 
-  `Box Office Legs = Total Domestic Gross / Opening Weekend Gross`
+For example, box office legs of 3.0 mean that total domestic earnings were three times the opening weekend earnings.
+
+`Box Office Legs = Total Domestic Gross / Opening Weekend Gross`
 
 ### Review Volume (IV)
 
-Review volume represents one of the independent variables of this study. It was calculated by counting the amount of reviews for each movie during its theatrical run.
+Review volume is a discrete, count-based independent variable representing the amount of review activity surrounding a movie. It measures how many reviews were recorded, regardless of whether those reviews were positive or negative.
 
+Review volume is calculated separately for critics and users, using only reviews published within each movie's theatrical window.
+
+`Review Volume = Number of Reviews Within the Theatrical Window`
 
 ### Review Valence (IV)
 
-Review valence represents one of the independent variables of this study.
+Review valence is a numerical proportion used as an independent variable to represent how positively a movie was evaluated. It ranges from 0 to 1, where higher values indicate a greater share of positive reviews.
 
-This project uses both critic and user review valence. 
+For example, a review valence of 0.80 means that 80% of the included reviews were positive. The measure is calculated separately for critic and user reviews.
+
+`Review Valence = Positive Reviews / Total Reviews`
 
 #### Critic Review Valence
 
+Critic review valence uses the existing positive and negative classifications stored in the Rotten Tomatoes dataset's `scoreSentiment` variable. These are categorical sentiment labels rather than numerical ratings.
 
+The labels are standardized by removing surrounding whitespace and converting them to uppercase. The number of positive critic reviews is then divided by the total number of critic reviews within the theatrical window.
 
 #### User Review Valence
 
-The numerical score used is called scoreSentiment which is part of the Rotten Tomatoes dataset.
+User review valence is constructed from the numerical `score` variable. Each rating is converted into a categorical `scoreSentiment` label using the following threshold:
 
-Scores below 3.0 are classified as negative, while scores of 3.0 or higher are classified as positive.
+- `score < 3.0 → NEGATIVE`
+- `score >= 3.0 → POSITIVE`
 
-  `score < 3.0 ~ "NEGATIVE"`
-  `score >= 3.0 ~ "POSITIVE"`
-
+The number of positive user reviews is then divided by the total number of user reviews within the theatrical window.
 
 ### Average Buzz (Moderator)
 
-### Theatrical Window
+Average buzz is a continuous moderator representing online attention surrounding a movie, measured through Google Trends search interest. It is used to examine whether the relationships between review measures and box office legs vary depending on the level of search interest.
+
+Daily search-interest values are averaged across the collected five-week period: one week before theatrical release and four weeks after release. Missing values are excluded from the calculation.
+
+`Average Buzz = Mean of Available Daily Search-Interest Values`
+
+
+### Variable Transformations
+
+Box office legs and review volume also have log-transformed versions to address right-skewness and reduce the influence of very large values. These are calculated using `log1p(x)`, equivalent to the natural logarithm of one plus the original value.
+
+`Transformed Variable = ln(1 + Original Variable)`
+
+For interaction models, log-transformed review volume, review valence, and average buzz are mean-centered separately within each analysis dataset. This makes zero represent the dataset's average value and helps interpret model coefficients when the interacting variables are at their means.
+
+`Centered Variable = Variable − Mean of the Variable`
