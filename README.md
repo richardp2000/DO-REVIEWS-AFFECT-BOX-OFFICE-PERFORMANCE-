@@ -131,21 +131,28 @@ Box office legs represent the dependent variable of this study and were calculat
 
 ### Review Volume (IV)
 
-Review volume represents one of the independent variables of this study. It was calculated by
+Review volume represents one of the independent variables of this study. It was calculated by counting the amount of reviews for each movie during its theatrical run.
 
-counting the amount of reviews for each movie during its theatrical run.
 
 ### Review Valence (IV)
 
 Review valence represents one of the independent variables of this study.
 
-Reviews are classified as positive or negative based on their numerical score.
+This project uses both critic and user review valence. 
+
+#### Critic Review Valence
+
+
+
+#### User Review Valence
 
 The numerical score used is called scoreSentiment which is part of the Rotten Tomatoes dataset.
 
 Scores below 3.0 are classified as negative, while scores of 3.0 or higher are classified as positive.
 
-  `score < 3.0 ~ "NEGATIVE"`text `text - score >= 3.0 ~ "POSITIVE"`
+  `score < 3.0 ~ "NEGATIVE"`
+  `score >= 3.0 ~ "POSITIVE"`
+
 
 ### Average Buzz (Moderator)
 
