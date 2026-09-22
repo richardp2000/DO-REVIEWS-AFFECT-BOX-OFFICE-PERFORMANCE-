@@ -1,7 +1,6 @@
-
 # DO REVIEWS AFFECT BOX OFFICE PERFORMANCE?
 
----
+------------------------------------------------------------------------
 
 This repository contains the research project I completed for my Master's Thesis in Marketing.
 
@@ -36,7 +35,7 @@ An additional objective of the research was to separate **buzz** from traditiona
 
 The final study consists of **335 theatrical movie releases in the United States between 2004 and 2024**.
 
----
+------------------------------------------------------------------------
 
 ## Preliminary Information
 
@@ -56,12 +55,12 @@ The intended replication workflow is therefore:
 
 Users who have access to the original raw datasets can instead follow the complete workflow contained in `Cleaning.Rmd`.
 
----
+------------------------------------------------------------------------
 
 ### Project Files
 
 | File | Description |
-|---|---|
+|------------------------------------|------------------------------------|
 | `Import_Cleaned_Data.Rmd` | A notebook to import the final cleaned datasets without the cleaning portion. The original Rotten Tomatoes review files were too large to upload to GitHub, for that reason I exported the final datasets as a CSV to be imported in this notebook. This is the recommended starting point for most users. |
 | `Cleaning.Rmd` | The original cleaning notebook used during the thesis. It documents the broader data-processing procedure, including the steps used to process and merge the original datasets. Some source files required by this notebook are not included in the repository because of GitHub file-size limitations. |
 | `Analysis.Rmd` | The primary statistical-analysis notebook. It contains descriptive statistics, visualizations, Pearson correlation analyses, regression models, moderation analyses, transformations, and model-assumption testing used in the thesis. |
@@ -71,7 +70,7 @@ Users who have access to the original raw datasets can instead follow the comple
 | `critic_analysis_data.csv` | The final cleaned critic-review dataset used for the analysis. The original critic-review source dataset was considerably larger and is therefore not stored directly in this repository. |
 | `user_analysis_data.csv` | The final cleaned user-review dataset used for the analysis. As with the critic data, the original source dataset was too large to include directly in the repository. |
 
----
+------------------------------------------------------------------------
 
 ## Data Sources
 
@@ -118,15 +117,36 @@ A consistent **five-week window** was collected for every movie:
 
 The daily Google Trends values were averaged across this period to create the variable used in the analysis.
 
----
+------------------------------------------------------------------------
 
 ## Variable Construction
 
 The main variables used in the project are summarized below.
 
-### Box Office Legs
+### Box Office Legs (DV)
 
 Box office legs represent the dependent variable of this study and were calculated as:
 
-```text
-Box Office Legs = Total Domestic Gross / Opening Weekend Gross
+`text Box Office Legs = Total Domestic Gross / Opening Weekend Gross`text
+
+### Review Volume (IV)
+
+Review volume represents one of the independent variables of this study. It was calculated by
+
+counting the amount of reviews for each movie during its theatrical run.
+
+### Review Valence (IV)
+
+Review valence represents one of the independent variables of this study.
+
+Reviews are classified as positive or negative based on their numerical score.
+
+The numerical score used is called scoreSentiment which is part of the Rotten Tomatoes dataset.
+
+Scores below 3.0 are classified as negative, while scores of 3.0 or higher are classified as positive.
+
+`text score < 3.0 ~ "NEGATIVE"`text `text - score >= 3.0 ~ "POSITIVE"`text
+
+### Average Buzz (Moderator)
+
+### Theatrical Window
