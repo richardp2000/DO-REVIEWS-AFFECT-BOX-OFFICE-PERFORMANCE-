@@ -7,3 +7,5 @@
 critic_reviews.csv
 user_reviews_filtered.csv
 *.nb.html
+.httr-oauth
+.quarto
